@@ -43,7 +43,7 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
             <p
               className={
                 selectedSize && selectedSizeString === item
-                  ? `border border-black rounded-full px-2 text-xs cursor-pointer bg-slate-100`
+                  ? `border border-gray-300 rounded-full px-2 text-xs cursor-pointer bg-slate-100`
                   : `rounded-full px-1 cursor-pointer`
               }
               key={item}
