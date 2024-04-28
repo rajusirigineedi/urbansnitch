@@ -30,7 +30,12 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
             height={5}
             src="/shopping-bag.png"
             alt="shopping-bag"
-            className="w-5 h-5 sm:w-3 sm:h-3 md:h-5 md:w-5"
+            className="w-5 h-5 sm:w-3 sm:h-3 md:h-5 md:w-5 cursor-pointer"
+            onClick={() =>
+              console.log(
+                "redirect to cart when everything is ready or show a popup of mini cart."
+              )
+            }
           />
         </div>
         <div className="flex gap-4 text-xs mt-2">
