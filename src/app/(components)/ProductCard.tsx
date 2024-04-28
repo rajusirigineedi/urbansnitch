@@ -17,24 +17,22 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
   console.log(currentImageIndex);
   return (
     <div className="lg:w-96 md:w-72 sm:w-64">
-      <div
-        className="shadow-lg rounded-sm border-red sm:p-2 lg:p-2 md:p-2 cursor-pointer"
-        onClick={() => {
-          setCurrentImageIndex(
-            (currentImageIndex - 1 && currentImageIndex + 1) <=
-              product.imageUrl.length
-              ? currentImageIndex + 1
-              : 0
-          );
-          setCurrentImageUrl(product.imageUrl[currentImageIndex - 1]);
-        }}
-      >
+      <div className="shadow-lg rounded-sm border-red sm:p-2 lg:p-2 md:p-2 cursor-pointer">
         <Image
           className="w-full"
           width={80}
           height={72}
           src={currentImageUrl}
           alt="image"
+          onClick={() => {
+            setCurrentImageIndex(
+              (currentImageIndex - 1 && currentImageIndex + 1) <=
+                product.imageUrl.length
+                ? currentImageIndex + 1
+                : 0
+            );
+            setCurrentImageUrl(product.imageUrl[currentImageIndex - 1]);
+          }}
         />
         <div className="flex justify-between items-center mt-2">
           <p className="text-bold text-slate-700 text-md sm:text-sm md:text-sm">
