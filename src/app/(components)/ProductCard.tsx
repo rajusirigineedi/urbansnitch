@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 interface ProductInterface {
-  imageUrl: string;
+  imageUrl: string[];
   title: string;
   price: string;
 }
@@ -11,15 +11,27 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
   const sizes = ["S", "M", "L", "1XL", "2XL", "3XL"];
   const [selectedSize, setSelectedSize] = useState<Boolean>(false);
   const [selectedSizeString, setSelectedSizeString] = useState<String>("");
+  const [currentImageUrl, setCurrentImageUrl] = useState(product.imageUrl[0]);
+  const [currentCard, setCurrentCard] = useState("");
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   return (
     <div className="lg:w-96 md:w-72 sm:w-64">
-      <div className="shadow-lg rounded-sm border-red sm:p-2 lg:p-2 md:p-2">
+      <div className="shadow-lg rounded-sm border-red sm:p-2 lg:p-2 md:p-2 cursor-pointer">
         <Image
           className="w-full"
           width={80}
           height={72}
-          src={product.imageUrl}
+          src={currentImageUrl}
           alt="image"
+          onClick={() => {
+            setCurrentImageIndex(
+              currentImageIndex + 1 < product.imageUrl.length
+                ? currentImageIndex + 1
+                : 0
+            );
+            setCurrentImageUrl(product.imageUrl[currentImageIndex]);
+            console.log(currentImageIndex);
+          }}
         />
         <div className="flex justify-between items-center mt-2">
           <p className="text-bold text-slate-700 text-md sm:text-sm md:text-sm">
