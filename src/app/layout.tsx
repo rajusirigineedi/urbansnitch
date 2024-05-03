@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 const euclid = localfont({
   src: [
     {
-      path: "../../public/fonts/EuclidCircularARegular.ttf",
+      path: "../../public/fonts/EuclidFlexRegular.ttf",
       weight: "700",
     },
   ],

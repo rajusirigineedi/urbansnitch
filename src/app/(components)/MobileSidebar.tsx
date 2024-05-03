@@ -8,7 +8,7 @@ import Image from "next/image";
 const MobileSidebar = () => {
   return (
     <>
-      <div className="lg:hidden md:hidden w-full h-16 bg-slate-100/10 flex justify-between items-center p-2 m-2 shadow-sm">
+      <div className="lg:hidden md:hidden w-full h-16 bg-slate-100/10 flex justify-between items-center p-2 m-2 shadow-sm font-euclid">
         <Sheet>
           <SheetTrigger>
             <Button variant={"ghost"} size={"icon"} className="md:hidden">
