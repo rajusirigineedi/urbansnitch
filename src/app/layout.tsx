@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import localfont from "next/font/local";
+import { useMediaQuery } from "react-responsive";
+import DesktopHeader from "./(components)/DesktopHeader";
+import MobileSidebar from "./(components)/MobileSidebar";
 const inter = Inter({ subsets: ["latin"] });
 
 const euclid = localfont({
@@ -24,9 +27,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1000px)",
+  });
   return (
     <html lang="en" className={`${euclid.variable} font-sans`}>
-      <body>{children}</body>
+      <body>
+        {isDesktopOrLaptop ? <DesktopHeader /> : <MobileSidebar />}
+        {children}
+      </body>
     </html>
   );
 }
