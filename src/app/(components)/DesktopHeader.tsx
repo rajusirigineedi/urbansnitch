@@ -12,10 +12,12 @@ const DesktopHeader = () => {
   console.log(isDesktopOrLaptop);
   return (
     isDesktopOrLaptop && (
-      <div className="p-6 flex items-center justify-between bg-white h-16 w-full shadow-sm border border-b-gray-300">
-        <p className="font-bold text-xl">Nicobar</p>
+      <div className="p-6 flex items-center justify-between bg-white h-16 w-full shadow-sm border border-b-gray-300 font-euclid">
+        <p className="font-bold text-xl font-euclid">Nicobar</p>
         <div className="flex gap-16">
-          <p className="text-slate-600 text-sm cursor-pointer">Men</p>
+          <p className="text-slate-600 text-sm cursor-pointer font-euclid">
+            Men
+          </p>
           <p className="text-slate-600 text-sm cursor-pointer">Women</p>
           <p className="text-slate-600 text-sm cursor-pointer">
             Special Prices

@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import localfont from "next/font/local";
 const inter = Inter({ subsets: ["latin"] });
+
+const euclid = localfont({
+  src: [
+    {
+      path: "../../public/fonts/EuclidCircularARegular.ttf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-euclid",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${euclid.variable} font-sans`}>
+      <body>{children}</body>
     </html>
   );
 }

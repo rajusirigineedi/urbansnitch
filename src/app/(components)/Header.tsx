@@ -5,7 +5,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 const Header = () => {
   return (
-    <div className="lg:hidden bg-slate-200 sm:w-[40vh] h-[90vh] gap-5">
+    <div className="lg:hidden bg-slate-200 sm:w-[40vh] h-[90vh] gap-5 font-euclid">
       <div className="flex flex-col gap-10 justify-start p-4">
         <p>Men</p>
         <p>Women</p>
