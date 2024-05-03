@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import localfont from "next/font/local";
+
+import { useMediaQuery } from "react-responsive";
+import Providers from "./(components)/Providers";
 const inter = Inter({ subsets: ["latin"] });
 
 const euclid = localfont({
@@ -26,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${euclid.variable} font-sans`}>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
