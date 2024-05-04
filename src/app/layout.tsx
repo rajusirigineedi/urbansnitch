@@ -11,10 +11,19 @@ const euclid = localfont({
   src: [
     {
       path: "../../public/fonts/EuclidFlexRegular.ttf",
-      weight: "700",
     },
   ],
   variable: "--font-euclid",
+});
+
+const butler = localfont({
+  src: [
+    {
+      path: "../../public/fonts/Butler_Regular.otf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-butler",
 });
 
 export const metadata: Metadata = {
