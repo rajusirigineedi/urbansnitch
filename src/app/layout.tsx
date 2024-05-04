@@ -5,6 +5,7 @@ import localfont from "next/font/local";
 import { useMediaQuery } from "react-responsive";
 import DesktopHeader from "./(components)/DesktopHeader";
 import MobileSidebar from "./(components)/MobileSidebar";
+import Providers from "./(components)/Providers";
 const inter = Inter({ subsets: ["latin"] });
 
 const euclid = localfont({
@@ -33,8 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${euclid.variable} font-sans`}>
       <body>
-        {isDesktopOrLaptop ? <DesktopHeader /> : <MobileSidebar />}
-        {children}
+        <Providers>
+          {isDesktopOrLaptop ? <DesktopHeader /> : <MobileSidebar />}
+          {children}
+        </Providers>
       </body>
     </html>
   );

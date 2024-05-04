@@ -5,12 +5,7 @@ import MobileSidebar from "../(components)/MobileSidebar";
 import DesktopHeader from "../(components)/DesktopHeader";
 
 const page = () => {
-  return (
-    <div>
-      <MobileSidebar />
-      <DesktopHeader />
-    </div>
-  );
+  return <div>This is home</div>;
 };
 
 export default page;
