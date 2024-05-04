@@ -74,6 +74,7 @@ const config = {
       },
       fontFamily: {
         euclid: ["var(--font-euclid)"],
+        butler: ["var(--font-butler)"],
       }
     },
   },
