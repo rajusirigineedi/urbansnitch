@@ -11,7 +11,6 @@ const euclid = localfont({
   src: [
     {
       path: "../../public/fonts/EuclidFlexRegular.ttf",
-      weight: "700",
     },
   ],
   variable: "--font-euclid",

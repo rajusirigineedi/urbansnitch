@@ -1,5 +1,7 @@
+import { Instagram, Mail, MapPin } from "lucide-react";
 import { headers } from "next/headers";
 import React from "react";
+import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 interface FooterBoxData {
   iconUrl: string;
@@ -13,17 +15,42 @@ const FooterBox: React.FC<{ data: FooterBoxData }> = ({
   data: FooterBoxData;
 }) => {
   return (
-    <div className="w-1/4 bg-slate-400/10 p-4 flex ">
-      <img src={data.iconUrl} alt="icon" />
-      <div className="flex">
-        <p>{data.heading}</p>
-        <p>{data.description}</p>
+    <div className="w-1/4 bg-slate-400/10 shadow-lg p-5 flex h-32 justify-center items-center">
+      <img src={data.iconUrl} alt="icon" className="h-10 w-10" />
+      <div className="flex flex-col ml-4">
+        <p className="font-bold">{data.heading}</p>
+        <p className="text-sm text-gray-500">{data.description}</p>
       </div>
     </div>
   );
 };
 
+const footerBoxDataArray = [
+  {
+    iconUrl: "https://www.nicobar.com/cdn/shop/files/return.svg?v=1676354450",
+    heading: "Easy returns",
+    description: "Return within 15 days order delivery",
+  },
+  {
+    iconUrl:
+      "https://www.nicobar.com/cdn/shop/files/noun-car-2164405_79b2948c-e083-445b-959b-b2a39a68967f.svg?v=1697622804",
+    heading: "We ship worldwide",
+    description: "visit global.nicobar.com",
+  },
+  {
+    iconUrl: "https://www.nicobar.com/cdn/shop/files/cash.svg?v=1676354450",
+    heading: "Cash on delivery",
+    description: "COD available",
+  },
+  {
+    iconUrl: "https://www.nicobar.com/cdn/shop/files/order.svg?v=1676354450",
+    heading: "Free shipping",
+    description: "Free shipping on ordersabove ₹ 1,000",
+  },
+];
+
 const Footer = () => {
+  const date: number = new Date().getFullYear();
   return (
     <div className="font-euclid">
       <div className="w-full bg-slate-400/10 shadow-lg border-gray-300 min-h-56 flex flex-col p-4">
@@ -80,15 +107,65 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div>
-        <FooterBox
-          data={{
-            iconUrl:
-              "https://www.nicobar.com/cdn/shop/files/return.svg?v=1676354450",
-            heading: "Easy returns",
-            description: "Return within 15 days order delivery",
-          }}
-        />
+      <div className="mt-4 flex gap-4">
+        {footerBoxDataArray.map((item: FooterBoxData) => (
+          <FooterBox
+            data={{
+              iconUrl: item.iconUrl,
+              heading: item.heading,
+              description: item.description,
+            }}
+            key={item.heading}
+          />
+        ))}
+      </div>
+      <div className="bg-slate-500/10 min-h-60 mt-4 flex justify-center items-center">
+        <div className="w-1/4  border-r border-gray-400 flex flex-col gap-8 justify-center items-start ml-10">
+          <div className="flex gap-2">
+            <MapPin />
+            <p className="font-bold text-md cursor-pointer">
+              FIND A STORE NEAR YOU
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <Mail />
+            <p className="text-md text-gray-500">care@nicobar.com</p>
+          </div>
+          <div className="flex gap-2">
+            <FaWhatsapp size={24} />
+            <p className="text-md text-gray-500">
+              +91 8588000150 | +91 8588000151
+            </p>
+          </div>
+        </div>
+        <div className="w-1/4 border-r border-gray-400 flex flex-col gap-2 justify-center items-center">
+          <div className="flex flex-col justify-center items-start gap-2">
+            <p className="font-bold cursor-pointer">About us</p>
+            <p className="text-gray-500 cursor-pointer">Our story</p>
+            <p className="text-gray-500 cursor-pointer">Contact us</p>
+            <div className="flex gap-4 justify-center items-center mt-4">
+              <FaLinkedin size={28} className="text-gray-500 cursor-pointer" />
+              <FaInstagram size={28} className="text-gray-500 cursor-pointer" />
+            </div>
+          </div>
+        </div>
+        <div className="w-1/4 border-r border-gray-400 flex flex-col gap-2 justify-center items-center">
+          <div className="flex flex-col justify-center items-start gap-2">
+            <p className="font-bold cursor-pointer">Quick links</p>
+            <p className="text-gray-500 cursor-pointer">Track your order</p>
+            <p className="text-gray-500 cursor-pointer">Shipping & Returns</p>
+            <p className="text-gray-500 cursor-pointer">Privacy policy</p>
+            <p className="text-gray-500 cursor-pointer">Terms & Conditions</p>
+          </div>
+        </div>
+        <div className="w-1/4 border-r border-gray-400 flex flex-col gap-2 justify-center items-center">
+          <div className="flex flex-col justify-between items-start gap-2">
+            <p className="font-bold text-xl cursor-pointer">URBANSNITCH</p>
+            <p className="text-xs text-muted-foreground text-gray-500 text-wrap w-3/4">
+              Urbansnitch shopping Pvt.Ltd. All Rights Reserved &copy; {date}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
