@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import localfont from "next/font/local";
+
 import { useMediaQuery } from "react-responsive";
-import DesktopHeader from "./(components)/DesktopHeader";
-import MobileSidebar from "./(components)/MobileSidebar";
 import Providers from "./(components)/Providers";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,16 +27,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1000px)",
-  });
   return (
     <html lang="en" className={`${euclid.variable} font-sans`}>
       <body>
-        <Providers>
-          {isDesktopOrLaptop ? <DesktopHeader /> : <MobileSidebar />}
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
