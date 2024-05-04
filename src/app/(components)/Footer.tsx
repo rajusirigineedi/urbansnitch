@@ -54,7 +54,7 @@ const Footer = () => {
   return (
     <div className="font-euclid">
       <div className="w-full bg-slate-400/10 shadow-lg border-gray-300 min-h-56 flex flex-col p-4">
-        <div className="flex flex-col items-center justify-center ">
+        <div className="flex flex-col items-center justify-center">
           <p className="font-butler font-extrabold text-center text-2xl text-gray-700">
             Get on the list
           </p>

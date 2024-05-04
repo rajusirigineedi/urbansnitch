@@ -6,13 +6,17 @@ const ResponsiveHeader = dynamic(() => import("./ResponsiveHeader"), {
   ssr: false,
 });
 
+const ResponsiveFooter = dynamic(() => import("./ResponsiveFooter"), {
+  ssr: false,
+});
+
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <ResponsiveHeader />
       {children}
       {/* You can add our footer directly now */}
-      <Footer />
+      <ResponsiveFooter />
     </div>
   );
 };
