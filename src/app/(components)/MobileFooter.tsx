@@ -13,7 +13,7 @@ const MobileFooter = () => {
     <div className="font-euclid">
       <div className="w-full bg-slate-400/10 shadow-lg border-gray-300 min-h-44 flex flex-col p-4">
         <div className="flex flex-col items-center justify-center">
-          <p className="font-butler font-extrabold text-center text-md text-gray-700">
+          <p className="font-serif font-extrabold text-center text-md text-gray-700">
             Get on the list
           </p>
           <p className="text-[14px] text-justify mt-2">
