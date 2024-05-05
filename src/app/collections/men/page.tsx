@@ -4,7 +4,7 @@ import React from "react";
 const MenProdcutCard = () => {
   const arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
-    <div className="flex flex-wrap gap-8 justify-center p-4">
+    <div className="flex flex-wrap gap-10 justify-center p-4">
       {arr.map((item: number) => (
         <ProductCard
           product={{
