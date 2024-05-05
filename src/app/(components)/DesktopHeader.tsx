@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 
 const DesktopHeader = () => {
   return (
-    <div className="p-6 flex items-center justify-between bg-white h-16 w-full shadow-sm border border-b-gray-300 font-euclid">
+    <div className="p-6 flex items-center justify-between bg-white h-16 w-full shadow-lg border border-b-gray-300 font-euclid">
       <p className="font-bold text-xl font-euclid">Nicobar</p>
       <div className="flex gap-16">
         <p className="text-slate-600 text-sm cursor-pointer font-euclid">Men</p>

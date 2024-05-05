@@ -11,7 +11,7 @@ const MobileFooter = () => {
   const date: number = new Date().getFullYear();
   return (
     <div className="font-euclid">
-      <div className="w-full bg-slate-400/10 shadow-lg border-gray-300 min-h-44 flex flex-col p-4">
+      <div className="w-full bg-slate-400/10 shadow-sm border-gray-300 min-h-44 flex flex-col p-4">
         <div className="flex flex-col items-center justify-center">
           <p className="font-serif font-extrabold text-center text-md text-gray-700">
             Get on the list
@@ -34,7 +34,7 @@ const MobileFooter = () => {
           </button>
         </div>
       </div>
-      <div className="mt-4 flex gap-3">
+      <div className="mt-2 flex gap-2">
         {footerBoxDataArray.map((item: FooterBoxDataMobile) => (
           <FooterBoxMobile
             data={{
@@ -45,7 +45,7 @@ const MobileFooter = () => {
           />
         ))}
       </div>
-      <div className="bg-slate-700/10 min-h-60 flex flex-col mt-4">
+      <div className="bg-slate-700/10 min-h-60 flex flex-col mt-2">
         {/* child 1 */}
         <div className="w-full  flex flex-col justify-center items-start p-10 gap-4">
           <div className="flex gap-2">

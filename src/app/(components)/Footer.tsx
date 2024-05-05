@@ -10,7 +10,7 @@ const Footer = () => {
   const date: number = new Date().getFullYear();
   return (
     <div className="font-euclid">
-      <div className="w-full bg-slate-400/10 shadow-lg border-gray-300 min-h-56 flex flex-col p-4">
+      <div className="w-full bg-slate-400/10 shadow-sm border-gray-300 min-h-56 flex flex-col p-4">
         <div className="flex flex-col items-center justify-center">
           <p className="font-serif font-extrabold text-center text-2xl text-gray-700">
             Get on the list
@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="mt-4 flex gap-4">
+      <div className="mt-2 flex gap-2">
         {footerBoxDataArray.map((item: FooterBoxData) => (
           <FooterBox
             data={{
@@ -76,7 +76,7 @@ const Footer = () => {
           />
         ))}
       </div>
-      <div className="bg-slate-500/10 min-h-60 mt-4 flex justify-center items-center">
+      <div className="bg-slate-500/10 min-h-60 mt-2 flex justify-center items-center">
         <div className="w-1/4  border-r border-gray-400 flex flex-col gap-8 justify-center items-start ml-10">
           <div className="flex gap-2">
             <MapPin />
