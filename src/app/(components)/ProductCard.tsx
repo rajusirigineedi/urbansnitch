@@ -37,21 +37,15 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
   };
   return (
     <>
-      <div className="lg:w-96 md:w-72 sm:w-64">
-        <div className="shadow-lg rounded-sm border-red sm:p-2 lg:p-2 md:p-2 cursor-pointer">
-          <Image
-            className="w-full"
-            width={80}
-            height={72}
-            src={currentImageUrl}
-            alt="image"
-          />
+      <div className="lg:w-80 md:w-72 sm:w-96 font-euclid">
+        <div className="shadow-lg rounded-sm border-red p-4 lg:p-2 md:p-2 cursor-pointer">
+          <img className="w-[370px]" src={currentImageUrl} alt="image" />
           <div className="flex justify-between mt-4">
             <ChevronLeft size={30} onClick={handleLeftClick} />
             <ChevronRight size={30} onClick={handleRightClick} />
           </div>
           <div className="flex justify-between items-center mt-3">
-            <p className="text-bold text-slate-700 text-md sm:text-sm md:text-sm">
+            <p className="font-bold text-slate-700 text-md sm:text-sm md:text-sm">
               {product.title}
             </p>
             <Image
