@@ -8,7 +8,7 @@ const MenProdcutCard = () => {
     <div className=" flex flex-col justify-center items-center">
       <img
         src="https://cdn.shopify.com/s/files/1/0270/5129/4854/files/Women_4a1bad01-1f63-4c0e-a2d8-fb3b4ee9826b.jpg?v=1712717092"
-        alt=""
+        alt="women banner"
         className="w-full"
       />
       <p className="text-gray-700 mt-4">
