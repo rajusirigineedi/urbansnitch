@@ -56,7 +56,7 @@ const MobileFooter = () => {
           </div>
           <div className="flex gap-2">
             <Mail size={16} />
-            <p className="text-xs text-gray-500">care@nicobar.com</p>
+            <p className="text-xs text-gray-500">care@urbansnitch.com</p>
           </div>
           <div className="flex gap-2">
             <FaWhatsapp size={16} />
