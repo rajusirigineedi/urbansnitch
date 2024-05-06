@@ -1,6 +1,7 @@
 "use client";
 import { Heart, LogIn, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { useMediaQuery } from "react-responsive";
@@ -8,10 +9,14 @@ import { useMediaQuery } from "react-responsive";
 const DesktopHeader = () => {
   return (
     <div className="p-6 flex items-center justify-between bg-white h-16 w-full shadow-lg border border-b-gray-300 font-euclid">
-      <p className="font-bold text-xl font-euclid">Nicobar</p>
+      <p className="font-bold text-xl font-euclid">Urbansnitch</p>
       <div className="flex gap-16">
-        <p className="text-slate-600 text-sm cursor-pointer font-euclid">Men</p>
-        <p className="text-slate-600 text-sm cursor-pointer">Women</p>
+        <p className="text-slate-600 text-sm cursor-pointer font-euclid">
+          <Link href={"/collections/men"}>Men</Link>
+        </p>
+        <p className="text-slate-600 text-sm cursor-pointer">
+          <Link href={"/collections/women"}>Women</Link>
+        </p>
         <p className="text-slate-600 text-sm cursor-pointer">Special Prices</p>
         <p className="text-slate-600 text-sm cursor-pointer">New Arrivals</p>
       </div>

@@ -19,7 +19,7 @@ const MobileSidebar = () => {
           <Header />
         </SheetContent>
       </Sheet>
-      <p className="font-bold">NICOBAR</p>
+      <p className="font-bold">URBANSNITCH</p>
       <div className="flex gap-6 p-4 justify-center items-center">
         <UserRound />
         <Search />

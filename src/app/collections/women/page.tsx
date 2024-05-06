@@ -7,7 +7,7 @@ const MenProdcutCard = () => {
   return (
     <div className=" flex flex-col justify-center items-center">
       <img
-        src="https://cdn.shopify.com/s/files/1/0270/5129/4854/files/Men_639a5d5e-edd6-4f1f-9546-936f94e2ad86.jpg?v=1712717092"
+        src="https://cdn.shopify.com/s/files/1/0270/5129/4854/files/Women_4a1bad01-1f63-4c0e-a2d8-fb3b4ee9826b.jpg?v=1712717092"
         alt=""
         className="w-full"
       />
@@ -15,19 +15,19 @@ const MenProdcutCard = () => {
         <Link href={"/"} className="underline">
           Home
         </Link>{" "}
-        <span className="text-red-400">/ Men</span>
+        <span className="text-red-400">/ Women</span>
       </p>
       <div className="flex flex-wrap gap-10 justify-center p-4">
         {arr.map((item: number) => (
           <ProductCard
             product={{
               imageUrl: [
-                "https://www.nicobar.com/cdn/shop/files/NBI032285_1_400x.jpg?v=1712661312",
-                "https://www.nicobar.com/cdn/shop/files/NBI032297_1_400x.jpg?v=1712661314",
-                "https://www.nicobar.com/cdn/shop/files/NBI032279_1_400x.jpg?v=1712661312",
+                "https://www.nicobar.com/cdn/shop/files/NBI032582_1_400x.jpg?v=1712606847",
+                "https://www.nicobar.com/cdn/shop/files/NBI032571_1_400x.jpg?v=1712606841",
+                "https://www.nicobar.com/cdn/shop/files/NBI032646_1_400x.jpg?v=1712606847",
               ],
-              title: "Comoros Kurta - Green",
-              price: "6750",
+              title: "Shiro Beach Dress - Ivory",
+              price: "5750",
             }}
             key={item}
           />
