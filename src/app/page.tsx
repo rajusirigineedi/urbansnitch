@@ -12,11 +12,66 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import AvatarCard from "./(components)/AvatarCard";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1000px)",
   });
+
+  const avatarsArray = [
+    {
+      image:
+        "https://www.nicobar.com/cdn/shop/files/New_Arrival-1_624d0d7f-338a-4bb5-82ce-ea2b56bc8dd4_180x.jpg?v=1715317242",
+      title: "New Arrivals",
+    },
+    {
+      image:
+        "https://www.nicobar.com/cdn/shop/files/Shirt_be4c5832-c6fa-47aa-a2ef-28694c7e26a4_180x.jpg?v=1715317289",
+      title: "Shirts",
+    },
+    {
+      image:
+        "https://www.nicobar.com/cdn/shop/files/Tshirt_180x.jpg?v=1710005556",
+      title: "T-Shirts",
+    },
+    {
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYtyWCpXE6SdhNjMP9NszskxxA2WwqqfhpQA&s",
+      title: "Jeans",
+    },
+    {
+      image:
+        "https://www.nicobar.com/cdn/shop/files/Trouser_ae2d1088-5af2-4e7f-a727-5ea8e15b756b_180x.jpg?v=1712733822",
+      title: "Trousers",
+    },
+    {
+      image:
+        "https://www.nicobar.com/cdn/shop/files/Top_a5ded3ba-4a3c-4ef2-91fd-2c61c9f23a79_180x.jpg?v=1715316221",
+      title: "Tops",
+    },
+    {
+      image:
+        "https://www.nicobar.com/cdn/shop/files/Bottom_d7c16373-f74e-44c8-9f06-67ff0dcfd3cd_180x.jpg?v=1715316221",
+      title: "Bottoms",
+    },
+    {
+      image:
+        "https://www.nicobar.com/cdn/shop/files/Bestseller_f95a3c93-e26c-4e23-a1ac-f8d51863d568_180x.jpg?v=1710005180",
+      title: "Best sellers",
+    },
+    {
+      image:
+        "https://www.nicobar.com/cdn/shop/files/New_arrival_66adca48-5d58-464b-8091-a6edf1b16be0_180x.jpg?v=1715316221",
+      title: "New arrivals",
+    },
+    {
+      image:
+        "https://www.nicobar.com/cdn/shop/files/Sari_180x.jpg?v=1710005179",
+      title: "Sari",
+    },
+  ];
   return (
     <div className="p-4">
       {/* Banner starts */}
@@ -94,6 +149,19 @@ export default function Home() {
       </div>
       {/* Info cards end */}
 
+      {/* Avatar cards starts */}
+      {isDesktopOrLaptop && (
+        <div className="flex justify-center items-center mt-8">
+          <div className="avatars flex flex-wrap gap-8">
+            {avatarsArray.map((item, index) => (
+              <AvatarCard
+                data={{ imageUrl: item.image, title: item.title }}
+                key={item.title}
+              />
+            ))}
+          </div>
+        </div>
+      )}
       <div className="p-8 bg-white -mt-4 md:mt-4">
         <div className="flex flex-col justify-center items-center gap-2">
           <p className="text-md font-bold md:text-2xl uppercase text-center">
@@ -237,6 +305,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <div className="bg-slate-200 min-h-96 flex justify-center mt-0 md:pb-8">
         <div className="flex w-full sm:w-3/5 bg-white justify-center items-center">
           <div className="flex h-2/3 md:h-full -mt-64 md:mt-0">
