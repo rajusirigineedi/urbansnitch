@@ -209,6 +209,61 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      <div className="bg-slate-200 min-h-96 flex justify-center mt-0 pt-0 md:pt-8 ">
+        <div className="flex w-full sm:w-3/5 bg-white justify-center items-center ">
+          <div className="flex h-2/3 md:h-full">
+            <div className="flex flex-col justify-center items-center p-4 gap-2 w-1/2 border border-gray-200">
+              <h1 className="text-sm tracking-wide md:tracking-widester">
+                URBANSTORE
+              </h1>
+              <h1 className="text-2xl">SHOES</h1>
+              <h1 className="font-bold text-md uppercase">New collection</h1>
+              <p className="mt-2 md:mt-4 text-xs md:text-lg">
+                Discover fashion bags for ladies online by very cheap.Find
+                fashion shoes of high quality by filtering according to your
+                needs.
+              </p>
+              <button className="uppercase p-4 text-white bg-violet-500 h-8 md:h-10 flex justify-center items-center text-sm md:text-lg mt-2 md:mt-4">
+                shop now
+              </button>
+            </div>
+            <img
+              src={
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBmDQG1l-JSMGYDvbpkC3NHJNiQYvJ8WcsMQ&s"
+              }
+              className="w-1/2 h-full"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="bg-slate-200 min-h-96 flex justify-center mt-0 md:pb-8">
+        <div className="flex w-full sm:w-3/5 bg-white justify-center items-center">
+          <div className="flex h-2/3 md:h-full -mt-64 md:mt-0">
+            <img
+              src={
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBmDQG1l-JSMGYDvbpkC3NHJNiQYvJ8WcsMQ&s"
+              }
+              className="w-1/2 h-full"
+            />
+            <div className="flex flex-col justify-center items-center p-4 gap-2 w-1/2 border border-gray-200">
+              <h1 className=" text-sm tracking-wide md:tracking-widester">
+                URBANSTORE
+              </h1>
+              <h1 className="text-2xl">SHOES</h1>
+              <h1 className="font-bold text-md uppercase">New collection</h1>
+              <p className="mt-2 md:mt-4 text-xs md:text-lg">
+                Discover fashion bags for ladies online by very cheap.Find
+                fashion shoes of high quality by filtering according to your
+                needs.
+              </p>
+              <button className="uppercase p-4 text-white bg-violet-500 h-8 md:h-10 flex justify-center items-center text-sm md:text-lg mt-2 md:mt-4">
+                shop now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
