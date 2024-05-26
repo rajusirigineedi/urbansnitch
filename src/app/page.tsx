@@ -29,6 +29,7 @@ export default function Home() {
           width={500}
           layout="responsive"
           alt="Landing image"
+          className="h-96"
         />
       </div>
       {/* Banner ended */}
@@ -93,14 +94,16 @@ export default function Home() {
       </div>
       {/* Info cards end */}
 
-      <div className="p-8 bg-white mt-0 md:mt-4">
+      <div className="p-8 bg-white -mt-4 md:mt-4">
         <div className="flex flex-col justify-center items-center gap-2">
-          <p className="text-sm md:text-2xl uppercase text-center">The shop</p>
+          <p className="text-md font-bold md:text-2xl uppercase text-center">
+            The shop
+          </p>
           <p className="uppercase text-sm md:text-xs font-semibold text-center">
             Most covered clothing
           </p>
         </div>
-        <div className="buttons-block flex justify-center items-center mt-2">
+        <div className="buttons-block flex justify-center items-center mt-4">
           <div className="grid grid-cols-2 md:grid-cols-4 w-full md:w-1/2 gap-2">
             <button className="uppercase border-2 p-2 text-xs hover:bg-violet-400 hover:text-white">
               New Arrivals
