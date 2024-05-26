@@ -92,7 +92,10 @@ const config = {
       widester: '0.5em',
     }
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('daisyui')],
+  daisyui: {
+    themes: [],
+  }
 } satisfies Config
 
 export default config
