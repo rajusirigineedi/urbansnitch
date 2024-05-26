@@ -86,7 +86,7 @@ const Footer = () => {
           </div>
           <div className="flex gap-2">
             <Mail />
-            <p className="text-md text-gray-500">care@urbansnitch.com</p>
+            <p className="text-md text-gray-500">care@hermanhood.com</p>
           </div>
           <div className="flex gap-2">
             <FaWhatsapp size={24} />
@@ -117,9 +117,9 @@ const Footer = () => {
         </div>
         <div className="w-1/4 border-r border-gray-400 flex flex-col gap-2 justify-center items-center">
           <div className="flex flex-col justify-between items-start gap-2">
-            <p className="font-bold text-xl cursor-pointer">URBANSNITCH</p>
+            <p className="font-bold text-xl cursor-pointer">HERMANHOOD</p>
             <p className="text-xs text-muted-foreground text-gray-500 text-wrap w-3/4">
-              Urbansnitch shopping Pvt.Ltd. All Rights Reserved &copy; {date}
+              Hermanhood shopping Pvt.Ltd. All Rights Reserved &copy; {date}
             </p>
           </div>
         </div>

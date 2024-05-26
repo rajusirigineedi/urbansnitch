@@ -1,11 +1,25 @@
+"use client";
 import Image from "next/image";
 import LandingPageTextCard from "./(components)/LandingPageTextCard";
 import LandingPageColorCard from "./(components)/LandingPageColorCard";
 import Link from "next/link";
+import LandingPageProductCard from "./(components)/LandingPageProductCard";
+import { useMediaQuery } from "react-responsive";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Home() {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1000px)",
+  });
   return (
     <div className="p-4">
+      {/* Banner starts */}
       <div className="">
         <Image
           src={
@@ -17,7 +31,10 @@ export default function Home() {
           alt="Landing image"
         />
       </div>
-      <div className="md:bg-slate-400/10 pb-16">
+      {/* Banner ended */}
+
+      {/* Info cards starts */}
+      <div className="md:bg-slate-400/10 pb-8">
         <div className="flex flex-wrap justify-center md:-mt-16 mt-4 gap-2 md:gap-0 ">
           <LandingPageTextCard
             data={{
@@ -44,6 +61,7 @@ export default function Home() {
           <Link href={"/collections/men"}>
             <LandingPageColorCard
               data={{
+                subTitle: "Urbanstore",
                 title: "MEN",
                 bgColor: "bg-pink-100",
                 imageUrl:
@@ -54,6 +72,7 @@ export default function Home() {
           <Link href={"/collections/women"}>
             <LandingPageColorCard
               data={{
+                subTitle: "Urbanstore",
                 title: "WOMEN",
                 bgColor: "bg-white",
                 imageUrl:
@@ -63,15 +82,18 @@ export default function Home() {
           </Link>
           <LandingPageColorCard
             data={{
+              subTitle: "Urbanstore",
               title: "ALL-COLLECTIONS",
               bgColor: "bg-sky-100",
               imageUrl:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEYKNXpJOO-gqQ_yVVUmaCwwHxzKGk1EqIqA&s",
+                "https://thumbs.dreamstime.com/b/nice-female-male-casual-clothing-posing-to-camera-nice-female-male-casual-clothing-posing-to-camera-113642977.jpg",
             }}
           />
         </div>
       </div>
-      <div className="p-8 bg-white h-100 border border-l-2">
+      {/* Info cards end */}
+
+      <div className="p-8 bg-white mt-0 md:mt-4">
         <div className="flex flex-col justify-center items-center gap-2">
           <p className="text-sm md:text-2xl uppercase text-center">The shop</p>
           <p className="uppercase text-sm md:text-xs font-semibold text-center">
@@ -94,6 +116,95 @@ export default function Home() {
             </button>
           </div>
         </div>
+        {/* Landing page product cards starts */}
+        {isDesktopOrLaptop && (
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-2 mt-6">
+              <LandingPageProductCard
+                data={{
+                  imageUrl:
+                    "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+                  productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+                  productPrice: "2,399",
+                }}
+              />
+              <LandingPageProductCard
+                data={{
+                  imageUrl:
+                    "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+                  productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+                  productPrice: "2,399",
+                }}
+              />
+              <LandingPageProductCard
+                data={{
+                  imageUrl:
+                    "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+                  productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+                  productPrice: "2,399",
+                }}
+              />
+              <LandingPageProductCard
+                data={{
+                  imageUrl:
+                    "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+                  productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+                  productPrice: "2,399",
+                }}
+              />
+            </div>
+          </div>
+        )}
+        {!isDesktopOrLaptop && (
+          <div className="mt-4">
+            <Carousel className="">
+              <CarouselContent>
+                <CarouselItem className="flex justify-center items-center">
+                  <LandingPageProductCard
+                    data={{
+                      imageUrl:
+                        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+                      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+                      productPrice: "2,399",
+                    }}
+                  />
+                </CarouselItem>
+                <CarouselItem className="flex justify-center items-center">
+                  <LandingPageProductCard
+                    data={{
+                      imageUrl:
+                        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+                      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+                      productPrice: "2,399",
+                    }}
+                  />
+                </CarouselItem>
+                <CarouselItem className="flex justify-center items-center">
+                  <LandingPageProductCard
+                    data={{
+                      imageUrl:
+                        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+                      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+                      productPrice: "2,399",
+                    }}
+                  />
+                </CarouselItem>
+                <CarouselItem className="flex justify-center items-center">
+                  <LandingPageProductCard
+                    data={{
+                      imageUrl:
+                        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+                      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+                      productPrice: "2,399",
+                    }}
+                  />
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious className="ml-4" />
+              <CarouselNext className="mr-4" />
+            </Carousel>
+          </div>
+        )}
       </div>
     </div>
   );

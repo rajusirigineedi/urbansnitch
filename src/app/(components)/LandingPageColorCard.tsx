@@ -7,8 +7,13 @@ const LandingPageColorCard = ({ data }: { data: LandingPageColorCardInt }) => {
     <div
       className={`${data.bgColor} shadow-lg flex justify-between items-center font-euclid hover:shadow-2xl`}
     >
-      <div className="w-80 p-6 h-60 md:h-80 flex flex-col justify-around items-center gap-2 border border-r-2">
-        <p className="text-xl md:text-xl text-gray-500">{data?.title}</p>
+      <div className="w-80 p-6 h-60 md:h-80 flex flex-col justify-around items-center border border-r-2">
+        <div className="flex flex-col justify-center items-center gap-2">
+          <p className="uppercase text-xs tracking-widester text-gray-600">
+            {data?.subTitle}
+          </p>
+          <p className="text-xl md:text-xl text-gray-700">{data?.title}</p>
+        </div>
         <img
           src={data?.imageUrl}
           alt={data?.title}
