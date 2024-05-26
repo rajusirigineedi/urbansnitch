@@ -87,6 +87,9 @@ const config = {
       '8': '8px',
       '16': '16px',
       '32': '32px',
+    },
+    letterSpacing: {
+      widester: '0.5em',
     }
   },
   plugins: [require("tailwindcss-animate")],

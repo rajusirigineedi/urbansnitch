@@ -56,7 +56,7 @@ const MobileFooter = () => {
           </div>
           <div className="flex gap-2">
             <Mail size={16} />
-            <p className="text-xs text-gray-500">care@urbansnitch.com</p>
+            <p className="text-xs text-gray-500">care@hermanhood.com</p>
           </div>
           <div className="flex gap-2">
             <FaWhatsapp size={16} />
@@ -100,9 +100,9 @@ const MobileFooter = () => {
           <hr className="border-b-gray-300 border w-3/4" />
         </div>
         <div className="w-full flex flex-col gap-2 justify-center items-center mt-2 p-4">
-          <p className="text-md font-semibold cursor-pointer">URBANSNITCH</p>
+          <p className="text-md font-semibold cursor-pointer">HERMANHOOD</p>
           <p className="text-xs text-gray-500 text-wrap w-2/4 text-center">
-            Urbansnitch shopping Pvt.Ltd.
+            Hermanhood shopping Pvt.Ltd.
           </p>
           <p className="text-xs text-gray-500 text-wrap w-2/4 text-center">
             All Rights Reserved &copy; {date}
