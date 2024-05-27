@@ -17,7 +17,7 @@ const DailyDealsCard = ({ data }: { data: DailyDealsCardInt }) => {
             </p>
             <p className="text-xs md:text-sm">${data?.price}</p>
           </div>
-          <button className="bg-violet-400 p-2 text-white h-8 w-14 flex justify-center items-center text-xs md:text-sm font-bold">
+          <button className="text-nowrap bg-violet-400 p-2 text-white h-8 w-14 flex justify-center items-center text-xs md:text-sm font-bold">
             -{data?.discountPercents} &#37;
           </button>
         </div>

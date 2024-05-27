@@ -333,7 +333,7 @@ export default function Home() {
               </h1>
               <h1 className="text-2xl">SHOES</h1>
               <h1 className="font-bold text-md uppercase">New collection</h1>
-              <p className="mt-2 md:mt-4 text-xs md:text-lg">
+              <p className="mt-2 md:mt-4 text-xs md:text-lg text-center">
                 Discover fashion bags for ladies online by very cheap.Find
                 fashion shoes of high quality by filtering according to your
                 needs.
@@ -367,7 +367,7 @@ export default function Home() {
               </h1>
               <h1 className="text-2xl">SHOES</h1>
               <h1 className="font-bold text-md uppercase">New collection</h1>
-              <p className="mt-2 md:mt-4 text-xs md:text-lg">
+              <p className="mt-2 md:mt-4 text-xs md:text-lg text-center">
                 Discover fashion bags for ladies online by very cheap.Find
                 fashion shoes of high quality by filtering according to your
                 needs.
