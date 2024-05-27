@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/carousel";
 import AvatarCard from "./(components)/AvatarCard";
 import { Card, CardContent } from "@/components/ui/card";
+import DailyDealsCard from "./(components)/DailyDealsCard";
 
 export default function Home() {
   const isDesktopOrLaptop = useMediaQuery({
@@ -72,6 +73,17 @@ export default function Home() {
       title: "Sari",
     },
   ];
+  const dailyDetailCardsArr = [
+    {
+      imageUrl:
+        "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+      title: "Rare rabbit black blazer",
+      price: "99.00",
+      discountPercents: "25",
+      actualPrice: "69.00",
+    },
+  ];
+
   return (
     <div className="p-4">
       {/* Banner starts */}
@@ -310,6 +322,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      <hr />
 
       <div className="bg-slate-200 min-h-96 flex justify-center mt-0 pt-0 md:pt-8 ">
         <div className="flex w-full sm:w-3/5 bg-white justify-center items-center ">
@@ -364,6 +377,32 @@ export default function Home() {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+      <hr />
+      <div className="flex flex-col justify-center items-center -mt-28 md:mt-8">
+        <div className="flex flex-col justify-center items-center gap-3">
+          <p className="text-gray-500 tracking-widester uppercase text-xs md:text-sm">
+            urbanstore
+          </p>
+          <p className="text-gray-500 uppercase md:text-2xl">daily deals</p>
+          <p className="text-gray-600 uppercase text-xs font-bold">
+            check out our loving products today
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-center mt-8 md:mt-10 gap-2 md:gap-4">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <DailyDealsCard
+              data={{
+                imageUrl: dailyDetailCardsArr[0].imageUrl,
+                price: dailyDetailCardsArr[0].price,
+                actualPrice: dailyDetailCardsArr[0].actualPrice,
+                title: dailyDetailCardsArr[0].title,
+                discountPercents: dailyDetailCardsArr[0].discountPercents,
+              }}
+              key={index}
+            />
+          ))}
         </div>
       </div>
     </div>
