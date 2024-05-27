@@ -162,6 +162,39 @@ export default function Home() {
           </div>
         </div>
       )}
+      {!isDesktopOrLaptop && (
+        <div className="flex justify-center items-center -p-0">
+          <Carousel
+            opts={{
+              align: "center",
+            }}
+            className="w-full max-w-sm"
+          >
+            <CarouselContent>
+              {avatarsArray.map((item, index) => (
+                <CarouselItem
+                  key={index}
+                  className="basis-1/3 md:basis-1/2 lg:basis-1/3"
+                >
+                  <div className="p-0">
+                    <div className="flex items-center justify-center md:p-2 border-none">
+                      <AvatarCard
+                        data={{
+                          imageUrl: item.image,
+                          title: item.title,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="ml-9" />
+            <CarouselNext className="mr-9" />
+          </Carousel>
+        </div>
+      )}
+
       <div className="p-8 bg-white -mt-4 md:mt-4">
         <div className="flex flex-col justify-center items-center gap-2">
           <p className="text-md font-bold md:text-2xl uppercase text-center">
