@@ -25,25 +25,25 @@ const DailyDealsCard = ({ data }: { data: DailyDealsCardInt }) => {
         <div className="flex bg-slate-500/10 shadow-lg p-1">
           <div>
             <span className="countdown font-mono text-md">
-              <span style={{ "--value": 15 }}></span>
+              <span>15</span>
             </span>
             <span className="text-sm">days</span>
           </div>
           <div>
             <span className="countdown font-mono text-md">
-              <span style={{ "--value": 10 }}></span>
+              <span>10</span>
             </span>
             <span className="text-sm">hrs</span>
           </div>
           <div>
             <span className="countdown font-mono text-md">
-              <span style={{ "--value": 24 }}></span>
+              <span>24</span>
             </span>
             <span className="text-sm">min</span>
           </div>
           <div>
             <span className="countdown font-mono text-md">
-              <span style={{ "--value": 37 }}></span>
+              <span>37</span>
             </span>
             <span className="text-sm">sec</span>
           </div>
