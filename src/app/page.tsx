@@ -15,6 +15,7 @@ import {
 import AvatarCard from "./(components)/AvatarCard";
 import { Card, CardContent } from "@/components/ui/card";
 import DailyDealsCard from "./(components)/DailyDealsCard";
+import ReviewCard from "./(components)/ReviewCard";
 
 export default function Home() {
   const isDesktopOrLaptop = useMediaQuery({
@@ -402,6 +403,98 @@ export default function Home() {
               key={index}
             />
           ))}
+        </div>
+      </div>
+      <hr className="mt-4" />
+      <div className="mt-4 bg-gray-600/10 p-4 flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center gap-3">
+          <p className="text-gray-500 tracking-widester uppercase text-xs md:text-sm">
+            urbanstore
+          </p>
+          <p className="text-gray-500 uppercase md:text-2xl">
+            Public cheers for us!
+          </p>
+          <p className="text-gray-600 uppercase text-xs font-bold">
+            Find out how users are spreading the word!
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-center mt-8 md:mt-10 gap-4 md:gap-4 items-center">
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Raviteja",
+              subtitle: "@ravitejarps",
+              review: "this is a very good shopping website, but the ui is bad",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Raju sirigineedi",
+              subtitle: "@RajuAdobe",
+              review:
+                "Well I hold an iphone 15 pro max, and this site won't looking good in my iphone 15pro, forget about the products.",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Charan naidu",
+              subtitle: "@charanlowde",
+              review: "developer experience is very bad.",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Anonymous",
+              subtitle: "@anonym",
+              review:
+                "fck this website bro, if you are redirecting to myntra why the hell do you need a website, lol......",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Raviteja",
+              subtitle: "@ravitejarps",
+              review: "this is a very good shopping website, but the ui is bad",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Raju sirigineedi",
+              subtitle: "@RajuAdobe",
+              review:
+                "Well I hold an iphone 15 pro max, and this site won't looking good in my iphone 15pro, forget about the products.",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Charan naidu",
+              subtitle: "@charanlowde",
+              review: "developer experience is very bad.",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Anonymous",
+              subtitle: "@anonym",
+              review:
+                "fck this website bro, if you are redirecting to myntra why the hell do you need a website, lol......",
+            }}
+          />
         </div>
       </div>
     </div>
