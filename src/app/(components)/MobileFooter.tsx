@@ -107,6 +107,9 @@ const MobileFooter = () => {
           <p className="text-xs text-gray-500 text-wrap w-2/4 text-center">
             All Rights Reserved &copy; {date}
           </p>
+          <p className="text-xs text-gray-500 text-wrap w-2/4 text-center mt-2">
+            Made with ❤️ in India
+          </p>
         </div>
       </div>
     </div>
