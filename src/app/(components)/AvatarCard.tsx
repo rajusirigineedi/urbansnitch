@@ -7,7 +7,7 @@ const AvatarCard = ({ data }: { data: AvatarCardInt }) => {
       <img
         src={data?.imageUrl}
         alt=""
-        className="rounded-full w-12 h-12 md:w-20 md:h-20"
+        className="rounded-full w-14 h-14 md:w-20 md:h-20"
       />
       <p className="text-xs">{data?.title}</p>
     </div>

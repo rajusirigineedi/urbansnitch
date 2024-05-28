@@ -5,7 +5,7 @@ import Link from "next/link";
 const LandingPageColorCard = ({ data }: { data: LandingPageColorCardInt }) => {
   return (
     <div
-      className={`${data.bgColor} shadow-lg flex justify-between items-center font-euclid hover:shadow-2xl`}
+      className={`${data.bgColor} shadow-sm flex justify-between items-center font-euclid hover:shadow-md`}
     >
       <div className="w-80 p-6 h-60 md:h-80 flex flex-col justify-around items-center border border-r-2">
         <div className="flex flex-col justify-center items-center gap-2">
