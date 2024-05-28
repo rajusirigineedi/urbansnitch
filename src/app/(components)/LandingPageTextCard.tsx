@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 
 const LandingPageTextCard = ({ data }: { data: LandingPageTextCardInt }) => {
   return (
-    <div className=" bg-white shadow-lg flex justify-between items-center font-euclid hover:shadow-2xl">
+    <div className=" bg-white shadow-md flex justify-between items-center font-euclid hover:shadow-md">
       <div className="w-80 p-4 h-20 md:h-40 flex justify-center items-center gap-2 border border-r-2">
         <div className="flex flex-col gap-2 md:p-6">
           <p className="font-semibold text-xs md:text-md uppercase">

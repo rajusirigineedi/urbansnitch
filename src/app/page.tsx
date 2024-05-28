@@ -15,6 +15,7 @@ import {
 import AvatarCard from "./(components)/AvatarCard";
 import { Card, CardContent } from "@/components/ui/card";
 import DailyDealsCard from "./(components)/DailyDealsCard";
+import ReviewCard from "./(components)/ReviewCard";
 
 export default function Home() {
   const isDesktopOrLaptop = useMediaQuery({
@@ -84,6 +85,88 @@ export default function Home() {
     },
   ];
 
+  const infoCardsArray = [
+    {
+      title: "Shop 1500+ varieties",
+      description: "Live dangerously. Browse every tee available.",
+    },
+    {
+      title: "Don't panic",
+      description: "We have made some picks for you. Check out collections",
+    },
+    {
+      title: "Shop blank tees",
+      description: "Buy more and build more when you build a blank bundle",
+    },
+  ];
+
+  const colorCardData = [
+    {
+      href: "/collections/men",
+      data: {
+        subTitle: "Urbanstore",
+        title: "MEN",
+        bgColor: "bg-pink-100",
+        imageUrl:
+          "https://vestirio.com/cdn/shop/files/007_1800x1800.webp?v=1690795694",
+      },
+    },
+    {
+      href: "/collections/women",
+      data: {
+        subTitle: "Urbanstore",
+        title: "WOMEN",
+        bgColor: "bg-white",
+        imageUrl:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6kqyus094g-5JODil9kwuciLts-fliXYgIA&s",
+      },
+    },
+    {
+      href: "/collections/men",
+      data: {
+        subTitle: "Urbanstore",
+        title: "ALL-COLLECTIONS",
+        bgColor: "bg-sky-100",
+        imageUrl:
+          "https://thumbs.dreamstime.com/b/nice-female-male-casual-clothing-posing-to-camera-nice-female-male-casual-clothing-posing-to-camera-113642977.jpg",
+      },
+    },
+  ];
+
+  const landingPageProductData = [
+    {
+      imageUrl:
+        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+      productPrice: "2,399",
+    },
+    {
+      imageUrl:
+        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+      productPrice: "2,399",
+    },
+    {
+      imageUrl:
+        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+      productPrice: "2,399",
+    },
+    {
+      imageUrl:
+        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
+      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
+      productPrice: "2,399",
+    },
+  ];
+
+  const buttonData = [
+    "New Arrivals",
+    "Latest Products",
+    "Best Sellers",
+    "On Sale",
+  ];
+
   return (
     <div className="p-4">
       {/* Banner starts */}
@@ -101,67 +184,40 @@ export default function Home() {
       </div>
       {/* Banner ended */}
 
-      {/* Info cards starts */}
       <div className="md:bg-slate-400/10 pb-8">
+        {/* Info cards starts */}
         <div className="flex flex-wrap justify-center md:-mt-16 mt-4 gap-2 md:gap-0 ">
-          <LandingPageTextCard
-            data={{
-              title: "Shop 1500+ varieties",
-              description: "Live dangerously.Browse every tee available.",
-            }}
-          />
-          <LandingPageTextCard
-            data={{
-              title: "Don't panic",
-              description:
-                "We have made some picks for you.Check out collections",
-            }}
-          />
-          <LandingPageTextCard
-            data={{
-              title: "Shop blank tees",
-              description:
-                "Buy more and build more when you build a blank bundle",
-            }}
-          />
-        </div>
-        <div className="flex flex-wrap justify-center mt-8 md:mt-16 gap-2 md:gap-0 ">
-          <Link href={"/collections/men"}>
-            <LandingPageColorCard
+          {infoCardsArray.map((item) => (
+            <LandingPageTextCard
               data={{
-                subTitle: "Urbanstore",
-                title: "MEN",
-                bgColor: "bg-pink-100",
-                imageUrl:
-                  "https://vestirio.com/cdn/shop/files/007_1800x1800.webp?v=1690795694",
+                title: item.title,
+                description: item.description,
               }}
+              key={item.title}
             />
-          </Link>
-          <Link href={"/collections/women"}>
-            <LandingPageColorCard
-              data={{
-                subTitle: "Urbanstore",
-                title: "WOMEN",
-                bgColor: "bg-white",
-                imageUrl:
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6kqyus094g-5JODil9kwuciLts-fliXYgIA&s",
-              }}
-            />
-          </Link>
-          <LandingPageColorCard
-            data={{
-              subTitle: "Urbanstore",
-              title: "ALL-COLLECTIONS",
-              bgColor: "bg-sky-100",
-              imageUrl:
-                "https://thumbs.dreamstime.com/b/nice-female-male-casual-clothing-posing-to-camera-nice-female-male-casual-clothing-posing-to-camera-113642977.jpg",
-            }}
-          />
+          ))}
         </div>
-      </div>
-      {/* Info cards end */}
+        {/* Info cards end */}
 
-      {/* Avatar cards starts */}
+        {/* color cards stats */}
+        <div className="flex flex-wrap justify-center mt-8 md:mt-16 gap-2 md:gap-0 ">
+          {colorCardData.map((item) => (
+            <Link href={item.href} key={item.data.title}>
+              <LandingPageColorCard
+                data={{
+                  subTitle: item.data.subTitle,
+                  title: item.data.title,
+                  bgColor: item.data.bgColor,
+                  imageUrl: item.data.imageUrl,
+                }}
+              />
+            </Link>
+          ))}
+        </div>
+        {/* color cards end */}
+      </div>
+
+      {/* Avatar cards starts for desktop */}
       {isDesktopOrLaptop && (
         <div className="flex justify-center items-center mt-8">
           <div className="avatars flex flex-wrap gap-8">
@@ -174,6 +230,9 @@ export default function Home() {
           </div>
         </div>
       )}
+      {/* Avatar cards ends for desktop */}
+
+      {/* Avatar cards starts for mobile */}
       {!isDesktopOrLaptop && (
         <div className="flex justify-center items-center -p-0">
           <Carousel
@@ -206,6 +265,7 @@ export default function Home() {
           </Carousel>
         </div>
       )}
+      {/* Avatar cards ends for mobile */}
 
       <div className="p-8 bg-white -mt-4 md:mt-4">
         <div className="flex flex-col justify-center items-center gap-2">
@@ -218,109 +278,49 @@ export default function Home() {
         </div>
         <div className="buttons-block flex justify-center items-center mt-4">
           <div className="grid grid-cols-2 md:grid-cols-4 w-full md:w-1/2 gap-2">
-            <button className="uppercase border-2 p-2 text-xs hover:bg-violet-400 hover:text-white">
-              New Arrivals
-            </button>
-            <button className="uppercase border-2 p-2 text-xs hover:bg-violet-400 hover:text-white">
-              latest products
-            </button>
-            <button className="uppercase border-2 p-2 text-xs hover:bg-violet-400 hover:text-white">
-              best sellers
-            </button>
-            <button className="uppercase border-2 p-2 text-xs hover:bg-violet-400 hover:text-white">
-              on sale
-            </button>
+            {buttonData.map((text, index) => (
+              <button
+                key={index}
+                className="uppercase border-2 p-2 text-xs hover:bg-violet-400 hover:text-white"
+              >
+                {text}
+              </button>
+            ))}
           </div>
         </div>
-        {/* Landing page product cards starts */}
+
+        {/* Landing page product cards starts for desktop */}
         {isDesktopOrLaptop && (
           <div className="flex flex-wrap justify-center items-center gap-4">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-2 mt-6">
-              <LandingPageProductCard
-                data={{
-                  imageUrl:
-                    "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
-                  productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
-                  productPrice: "2,399",
-                }}
-              />
-              <LandingPageProductCard
-                data={{
-                  imageUrl:
-                    "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
-                  productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
-                  productPrice: "2,399",
-                }}
-              />
-              <LandingPageProductCard
-                data={{
-                  imageUrl:
-                    "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
-                  productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
-                  productPrice: "2,399",
-                }}
-              />
-              <LandingPageProductCard
-                data={{
-                  imageUrl:
-                    "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
-                  productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
-                  productPrice: "2,399",
-                }}
-              />
+              {landingPageProductData.map((data, index) => (
+                <LandingPageProductCard key={index} data={data} />
+              ))}
             </div>
           </div>
         )}
+        {/* Landing page product cards ends for desktop */}
+
+        {/* Landing page product cards starts for mobile */}
         {!isDesktopOrLaptop && (
           <div className="mt-4">
             <Carousel className="">
               <CarouselContent>
-                <CarouselItem className="flex justify-center items-center">
-                  <LandingPageProductCard
-                    data={{
-                      imageUrl:
-                        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
-                      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
-                      productPrice: "2,399",
-                    }}
-                  />
-                </CarouselItem>
-                <CarouselItem className="flex justify-center items-center">
-                  <LandingPageProductCard
-                    data={{
-                      imageUrl:
-                        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
-                      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
-                      productPrice: "2,399",
-                    }}
-                  />
-                </CarouselItem>
-                <CarouselItem className="flex justify-center items-center">
-                  <LandingPageProductCard
-                    data={{
-                      imageUrl:
-                        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
-                      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
-                      productPrice: "2,399",
-                    }}
-                  />
-                </CarouselItem>
-                <CarouselItem className="flex justify-center items-center">
-                  <LandingPageProductCard
-                    data={{
-                      imageUrl:
-                        "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNo7sQlR7qKXey_Xqr8id6HMOLOnqDa1TvptnCeVtr0nj387gzx68fFk9uAR9MfCMxXDhD7GQISSVOJZMwTwtJjTPkNOZh5hrJg4tTB3h__mnopYlIhrT2mWq0SxGWhwZUmRVIlA",
-                      productTitle: "MEN'S CHECKERED SLIM FIT SHIRT",
-                      productPrice: "2,399",
-                    }}
-                  />
-                </CarouselItem>
+                {landingPageProductData.map((data, index) => (
+                  <CarouselItem
+                    className="flex justify-center items-center"
+                    key={index}
+                  >
+                    <LandingPageProductCard data={data} />
+                  </CarouselItem>
+                ))}
               </CarouselContent>
               <CarouselPrevious className="ml-4" />
               <CarouselNext className="mr-4" />
             </Carousel>
           </div>
         )}
+        {/* Landing page product cards ends for mobile */}
       </div>
       <hr />
 
@@ -403,6 +403,98 @@ export default function Home() {
               key={index}
             />
           ))}
+        </div>
+      </div>
+      <hr className="mt-4" />
+      <div className="mt-4 bg-gray-600/10 p-4 flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center gap-3">
+          <p className="text-gray-500 tracking-widester uppercase text-xs md:text-sm">
+            urbanstore
+          </p>
+          <p className="text-gray-500 uppercase md:text-2xl">
+            Public cheers for us!
+          </p>
+          <p className="text-gray-600 uppercase text-xs font-bold">
+            Find out how users are spreading the word!
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-center mt-8 md:mt-10 gap-4 md:gap-4 items-center">
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Raviteja",
+              subtitle: "@ravitejarps",
+              review: "this is a very good shopping website, but the ui is bad",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Raju sirigineedi",
+              subtitle: "@RajuAdobe",
+              review:
+                "Well I hold an iphone 15 pro max, and this site won't looking good in my iphone 15pro, forget about the products.",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Charan naidu",
+              subtitle: "@charanlowde",
+              review: "developer experience is very bad.",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Anonymous",
+              subtitle: "@anonym",
+              review:
+                "fck this website bro, if you are redirecting to myntra why the hell do you need a website, lol......",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Raviteja",
+              subtitle: "@ravitejarps",
+              review: "this is a very good shopping website, but the ui is bad",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Raju sirigineedi",
+              subtitle: "@RajuAdobe",
+              review:
+                "Well I hold an iphone 15 pro max, and this site won't looking good in my iphone 15pro, forget about the products.",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Charan naidu",
+              subtitle: "@charanlowde",
+              review: "developer experience is very bad.",
+            }}
+          />
+          <ReviewCard
+            data={{
+              imageUrl:
+                "https://media.istockphoto.com/id/1340259073/photo/confident-young-businessman-standing-in-front-of-a-gray-background.jpg?s=612x612&w=0&k=20&c=3nsnWn1KjvJSgVpJawXWO59QVq7-HgE2EWQgKbhD7Dw=",
+              title: "Anonymous",
+              subtitle: "@anonym",
+              review:
+                "fck this website bro, if you are redirecting to myntra why the hell do you need a website, lol......",
+            }}
+          />
         </div>
       </div>
     </div>
