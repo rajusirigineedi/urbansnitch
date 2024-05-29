@@ -75,6 +75,9 @@ const config = {
       fontFamily: {
         euclid: ["var(--font-euclid)"],
         butler: ["var(--font-butler)"],
+      },
+      backgroundImage: {
+        'hero-pattern': "url('https://www.nicobar.com/cdn/shop/files/1560777459contact_us_banner_desktop_1900x.jpg?v=1614322936')"
       }
     },
     borderWidth: {

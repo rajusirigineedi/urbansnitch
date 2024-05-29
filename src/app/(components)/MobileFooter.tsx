@@ -6,6 +6,7 @@ import FooterBoxMobile from "./FooterBoxMobile";
 import { FooterBoxDataMobile } from "../(interfaces)/footerboxmobiledata";
 import { MapPin, Mail } from "lucide-react";
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
 
 const MobileFooter = () => {
   const date: number = new Date().getFullYear();
@@ -73,7 +74,9 @@ const MobileFooter = () => {
           <div className="flex flex-col justify-center items-start gap-2">
             <p className="font-bold text-sm cursor-pointer">About us</p>
             <p className="text-gray-500 cursor-pointer text-sm">Our story</p>
-            <p className="text-gray-500 cursor-pointer text-sm">Contact us</p>
+            <Link href={"/contact-us"}>
+              <p className="text-gray-500 cursor-pointer text-sm">Contact us</p>
+            </Link>
             <div className="flex gap-4 justify-center items-center mt-4">
               <FaLinkedin size={28} className="text-gray-500 cursor-pointer" />
               <FaInstagram size={28} className="text-gray-500 cursor-pointer" />

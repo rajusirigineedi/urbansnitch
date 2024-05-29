@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 interface ProductInterface {
   imageUrl: string[];
   title: string;
@@ -48,18 +49,7 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
             <p className="font-bold text-slate-700 text-md sm:text-sm md:text-sm">
               {product.title}
             </p>
-            <Image
-              width={5}
-              height={5}
-              src="/shopping-bag.png"
-              alt="shopping-bag"
-              className="w-5 h-5 sm:w-3 sm:h-3 md:h-5 md:w-5 cursor-pointer"
-              onClick={() =>
-                console.log(
-                  "redirect to cart when everything is ready or show a popup of mini cart."
-                )
-              }
-            />
+            <HiOutlineShoppingBag size={24} />
           </div>
           <div className="flex gap-4 text-xs mt-2">
             {sizes.map((item) => (
