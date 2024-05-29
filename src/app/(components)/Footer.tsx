@@ -5,6 +5,7 @@ import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FooterBoxData } from "../(interfaces)/footerboxdata";
 import FooterBox from "../(components)/FooterBox";
 import { footerBoxDataArray } from "../(utils)/constants";
+import Link from "next/link";
 
 const Footer = () => {
   const date: number = new Date().getFullYear();
@@ -99,7 +100,9 @@ const Footer = () => {
           <div className="flex flex-col justify-center items-start gap-2">
             <p className="font-bold cursor-pointer">About us</p>
             <p className="text-gray-500 cursor-pointer">Our story</p>
-            <p className="text-gray-500 cursor-pointer">Contact us</p>
+            <Link href={"/contact-us"}>
+              <p className="text-gray-500 cursor-pointer">Contact us</p>
+            </Link>
             <div className="flex gap-4 justify-center items-center mt-4">
               <FaLinkedin size={28} className="text-gray-500 cursor-pointer" />
               <FaInstagram size={28} className="text-gray-500 cursor-pointer" />
