@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import LandingPageTextCard from "./(components)/LandingPageTextCard";
 import LandingPageColorCard from "./(components)/LandingPageColorCard";

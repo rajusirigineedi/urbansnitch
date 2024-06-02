@@ -6,6 +6,7 @@ import FooterBoxMobile from "./FooterBoxMobile";
 import { FooterBoxDataMobile } from "../(interfaces)/footerboxmobiledata";
 import { MapPin, Mail } from "lucide-react";
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
 
 const MobileFooter = () => {
   const date: number = new Date().getFullYear();
@@ -56,7 +57,7 @@ const MobileFooter = () => {
           </div>
           <div className="flex gap-2">
             <Mail size={16} />
-            <p className="text-xs text-gray-500">care@urbansnitch.com</p>
+            <p className="text-xs text-gray-500">care@hermanhood.com</p>
           </div>
           <div className="flex gap-2">
             <FaWhatsapp size={16} />
@@ -73,7 +74,9 @@ const MobileFooter = () => {
           <div className="flex flex-col justify-center items-start gap-2">
             <p className="font-bold text-sm cursor-pointer">About us</p>
             <p className="text-gray-500 cursor-pointer text-sm">Our story</p>
-            <p className="text-gray-500 cursor-pointer text-sm">Contact us</p>
+            <Link href={"/contact-us"}>
+              <p className="text-gray-500 cursor-pointer text-sm">Contact us</p>
+            </Link>
             <div className="flex gap-4 justify-center items-center mt-4">
               <FaLinkedin size={28} className="text-gray-500 cursor-pointer" />
               <FaInstagram size={28} className="text-gray-500 cursor-pointer" />
@@ -100,12 +103,15 @@ const MobileFooter = () => {
           <hr className="border-b-gray-300 border w-3/4" />
         </div>
         <div className="w-full flex flex-col gap-2 justify-center items-center mt-2 p-4">
-          <p className="text-md font-semibold cursor-pointer">URBANSNITCH</p>
+          <p className="text-md font-semibold cursor-pointer">HERMANHOOD</p>
           <p className="text-xs text-gray-500 text-wrap w-2/4 text-center">
-            Urbansnitch shopping Pvt.Ltd.
+            Hermanhood shopping Pvt.Ltd.
           </p>
           <p className="text-xs text-gray-500 text-wrap w-2/4 text-center">
             All Rights Reserved &copy; {date}
+          </p>
+          <p className="text-xs text-gray-500 text-wrap w-2/4 text-center mt-2">
+            Made with ❤️ in India
           </p>
         </div>
       </div>

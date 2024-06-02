@@ -5,6 +5,8 @@ import Header from "./Header";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
+import Link from "next/link";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 const MobileSidebar = () => {
   return (
@@ -19,17 +21,13 @@ const MobileSidebar = () => {
           <Header />
         </SheetContent>
       </Sheet>
-      <p className="font-bold">URBANSNITCH</p>
+      <Link href={"/"}>
+        <p className="font-bold">HERMANHOOD</p>
+      </Link>
       <div className="flex gap-6 p-4 justify-center items-center">
         <UserRound />
         <Search />
-        <Image
-          width={5}
-          height={5}
-          src="/shopping-bag.png"
-          alt="shopping-bag"
-          className="w-5 h-5 sm:w-3 sm:h-3 md:h-5 md:w-5 cursor-pointer"
-        />
+        <HiOutlineShoppingBag size={24} />
       </div>
     </div>
   );

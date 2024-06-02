@@ -75,6 +75,9 @@ const config = {
       fontFamily: {
         euclid: ["var(--font-euclid)"],
         butler: ["var(--font-butler)"],
+      },
+      backgroundImage: {
+        'hero-pattern': "url('https://www.nicobar.com/cdn/shop/files/1560777459contact_us_banner_desktop_1900x.jpg?v=1614322936')"
       }
     },
     borderWidth: {
@@ -87,9 +90,15 @@ const config = {
       '8': '8px',
       '16': '16px',
       '32': '32px',
+    },
+    letterSpacing: {
+      widester: '0.5em',
     }
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('daisyui')],
+  daisyui: {
+    themes: [],
+  }
 } satisfies Config
 
 export default config
