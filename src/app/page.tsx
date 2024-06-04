@@ -18,7 +18,93 @@ import DailyDealsCard from "./(components)/DailyDealsCard";
 import ReviewCard from "./(components)/ReviewCard";
 
 export default function Home() {
+<<<<<<< Updated upstream
   const isDesktopOrLaptop = useMediaQuery({
+=======
+  const dailyRef = useRef(null);
+  const dailyIsInView = useInView(dailyRef, { once: false });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const mainControls = useAnimation();
+
+  const reviewRef = useRef(null);
+  const reviewIsInView = useInView(reviewRef, {
+    once: false,
+  });
+  const [reviewHasAnimated, setReviewHasAnimated] = useState(false);
+  const reviewControls = useAnimation();
+
+  const landingPageProductRef = useRef(null);
+  const landingPageIsInView = useInView(landingPageProductRef, { once: false });
+  const [landingProductHasAnimated, setLandingProductHasAnimated] =
+    useState(false);
+  const landingProductControls = useAnimation();
+
+  const landingPageColorCardRef = useRef(null);
+  const landingPageColorCardIsInView = useInView(landingPageColorCardRef, {
+    once: false,
+  });
+  const [landingPageColorCardHasAnimated, setLandingPageColorCardHasAnimated] =
+    useState(false);
+  const landingPageColorCardControls = useAnimation();
+
+  useEffect(() => {
+    if (dailyIsInView) {
+      mainControls.start("visible");
+    } else {
+      mainControls.start("hidden");
+    }
+  }, [dailyIsInView, mainControls]);
+
+  useEffect(() => {
+    if (reviewIsInView) {
+      reviewControls.start("visible");
+    } else {
+      reviewControls.start("hidden");
+    }
+  }, [reviewIsInView, reviewControls]);
+
+  useEffect(() => {
+    if (landingPageIsInView) {
+      landingProductControls.start("visible");
+    } else {
+      landingProductControls.start("hidden");
+    }
+  }, [landingPageIsInView, landingProductControls]);
+
+  useEffect(() => {
+    if (landingPageColorCardIsInView) {
+      landingPageColorCardControls.start("visible");
+    } else {
+      landingPageColorCardControls.start("hidden");
+    }
+  }, [landingPageColorCardIsInView, landingPageColorCardControls]);
+
+  const cardVariants = {
+    hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" },
+    visible: {
+      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const reviewCardVariants = {
+    hidden: { opacity: 0, y: -100, scale: 0.8 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8 } },
+  };
+
+  const landingPageProductCardVariants = {
+    hidden: { opacity: 0, x: 100, rotateY: 90 },
+    visible: { opacity: 1, x: 0, rotateY: 0, transition: { duration: 0.5 } },
+    style: { transformPerspective: 1000 }, // Add this style property
+  };
+
+  const landingPageColorCardVariants = {
+    hidden: { opacity: 0, x: 100, rotate: -10 },
+    visible: { opacity: 1, x: 0, rotate: 0, transition: { duration: 0.8 } },
+  };
+
+  const isDesktop = useMediaQuery({
+>>>>>>> Stashed changes
     query: "(min-width: 1000px)",
   });
 
