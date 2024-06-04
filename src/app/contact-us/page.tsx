@@ -105,7 +105,7 @@ const page = () => {
                 <AccordionTrigger className="text-left text-sm md:text-base">
                   How do I start a return?
                 </AccordionTrigger>
-                <AccordionContent className="text-xs md:text-base">
+                <AccordionContent className="text-xs md:text-base text-gray-500">
                   The quickest way to initiate a return/exchange is to call or
                   WhatsApp us at{" "}
                   <span className="font-bold">
@@ -123,7 +123,7 @@ const page = () => {
                 <AccordionTrigger className="text-left text-sm md:text-base">
                   Can I make an exchange?
                 </AccordionTrigger>
-                <AccordionContent className="text-xs md:text-base">
+                <AccordionContent className="text-xs md:text-base text-gray-500">
                   We offer size exchanges only for the same product, style, and
                   color that you have purchased.
                   <br /> In case your required size is not available, a credit
@@ -134,7 +134,7 @@ const page = () => {
                 <AccordionTrigger className="text-left text-sm md:text-base">
                   What if I receive a damaged product?
                 </AccordionTrigger>
-                <AccordionContent className="text-xs md:text-base">
+                <AccordionContent className="text-xs md:text-base text-gray-500">
                   Please do not accept a delivery if the packaging is not
                   properly sealed or is damaged. <br />
                   For order issues such as damaged or defective products, please
@@ -150,7 +150,7 @@ const page = () => {
                 <AccordionTrigger className="text-left text-sm md:text-base">
                   What if I receive the wrong product?
                 </AccordionTrigger>
-                <AccordionContent className="text-xs md:text-base">
+                <AccordionContent className="text-xs md:text-base text-gray-500">
                   In case a wrong product is delivered, you can whatsapp us at
                   <span className="font-bold">
                     +91 9010778702 or +91 7036836879
@@ -168,7 +168,7 @@ const page = () => {
                 <AccordionTrigger className="text-left text-sm md:text-base">
                   What if a product is missing from my order?
                 </AccordionTrigger>
-                <AccordionContent className="text-xs md:text-base">
+                <AccordionContent className="text-xs md:text-base text-gray-500">
                   In case a product or products are missing from your order, you
                   can call or whatsapp us at{" "}
                   <span className="font-bold">
