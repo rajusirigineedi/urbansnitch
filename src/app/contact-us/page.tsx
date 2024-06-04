@@ -4,6 +4,12 @@ import React from "react";
 import { IoChatboxOutline } from "react-icons/io5";
 import { MdOutlinePhoneCallback } from "react-icons/md";
 import { TfiEmail } from "react-icons/tfi";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const page = () => {
   return (
@@ -91,6 +97,92 @@ const page = () => {
               placeholder="Your message"
             />
             <button className="h-10 text-white bg-black">Send message</button>
+          </div>
+          <div className="w-full mt-8 font-mono">
+            <p className="font-bold text-3xl underline">FAQs</p>
+            <Accordion type="single" className="w-full mt-4" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-left">
+                  How do I start a return?
+                </AccordionTrigger>
+                <AccordionContent>
+                  The quickest way to initiate a return/exchange is to call or
+                  WhatsApp us at{" "}
+                  <span className="font-bold">
+                    +91 9010778702 / +91 7036836879
+                  </span>
+                  , or write to us at{" "}
+                  <span className="font-bold">
+                    <a href="mailto:care@hermanhood.com">care@hermanhood.com</a>
+                  </span>{" "}
+                  with your order ID and reason for return. We’ll take care of
+                  the rest!
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-left">
+                  Can I make an exchange?
+                </AccordionTrigger>
+                <AccordionContent>
+                  We offer size exchanges only for the same product, style, and
+                  color that you have purchased.
+                  <br /> In case your required size is not available, a credit
+                  note for the amount spent will be issued to you.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-left">
+                  What if I receive a damaged product?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Please do not accept a delivery if the packaging is not
+                  properly sealed or is damaged. <br />
+                  For order issues such as damaged or defective products, please
+                  contact us at{" "}
+                  <span className="font-bold">
+                    <a href="mailto:care@hermanhood.com">care@hermanhood.com</a>
+                  </span>{" "}
+                  within 48 hours of receiving the products, along with product
+                  images.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="text-left">
+                  What if I receive the wrong product?
+                </AccordionTrigger>
+                <AccordionContent>
+                  In case a wrong product is delivered, you can whatsapp us at
+                  <span className="font-bold">
+                    +91 9010778702 or +91 7036836879
+                  </span>
+                  or email us at
+                  <span className="font-bold">
+                    {" "}
+                    <a href="mailto:care@hermanhood.com">care@hermanhood.com</a>
+                  </span>{" "}
+                  along with the product images and the order number within 48
+                  hours of receiving the products, along with product images
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-5">
+                <AccordionTrigger className="text-left">
+                  What if a product is missing from my order?
+                </AccordionTrigger>
+                <AccordionContent>
+                  In case a product or products are missing from your order, you
+                  can call or whatsapp us at{" "}
+                  <span className="font-bold">
+                    +91 9010778702 or +91 7036836879
+                  </span>
+                  , or email us at{" "}
+                  <span className="font-bold">
+                    <a href="mailto:care@hermanhood.com">care@hermanhood.com</a>
+                  </span>{" "}
+                  within 48 hours of receiving the products and we’ll get back
+                  to you within 24 hours.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </div>
