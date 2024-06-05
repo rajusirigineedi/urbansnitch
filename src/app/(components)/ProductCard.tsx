@@ -1,9 +1,8 @@
 "use client";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Skeleton } from "@/components/ui/skeleton";
-import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 interface ProductInterface {
   imageUrl: string[];
   title: string;
@@ -17,6 +16,7 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
   const [currentCard, setCurrentCard] = useState("");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [val, setVal] = useState(true);
+  const [isWishlisted, setIsWishlisted] = useState(false);
   useEffect(() => {
     setTimeout(() => setVal(false), 5000);
   });
@@ -36,6 +36,29 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
     );
     setCurrentImageUrl(product.imageUrl[currentImageIndex]);
   };
+
+  const [toggle, setToggle] = useState(false);
+
+  const addToWishlist = (status: boolean) => {
+    setIsWishlisted(true);
+    setToggle(!toggle);
+    toast("Item added to wishlist", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
+
+  const removeFromWishlist = (status: boolean) => {
+    setIsWishlisted(false);
+  };
+
   return (
     <>
       <div className="lg:w-80 md:w-72 sm:w-96 font-euclid">
@@ -49,7 +72,18 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
             <p className="font-bold text-slate-700 text-md sm:text-sm md:text-sm">
               {product.title}
             </p>
-            <HiOutlineShoppingBag size={24} />
+            {isWishlisted && (
+              <img
+                width="24"
+                height="24"
+                src="/red-heart.png"
+                alt="heart-suit"
+                onClick={() => removeFromWishlist(false)}
+              />
+            )}
+            {!isWishlisted && (
+              <Heart size={24} onClick={() => addToWishlist(true)} />
+            )}
           </div>
           <div className="flex gap-4 text-xs mt-2">
             {sizes.map((item) => (
@@ -73,6 +107,7 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
             ₹ {product.price}
           </p>
         </div>
+        <ToastContainer />
       </div>
     </>
   );
