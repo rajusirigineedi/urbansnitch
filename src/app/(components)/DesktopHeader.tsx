@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-import { useMediaQuery } from "react-responsive";
 
 const DesktopHeader = () => {
   return (
@@ -27,18 +26,21 @@ const DesktopHeader = () => {
           <Search size={18} />
           <p className="text-xs text-muted text-slate-600 m-1">Search</p>
         </div>
-        <div className="flex flex-col justify-center items-center cursor-pointer">
+        {/* <div className="flex flex-col justify-center items-center cursor-pointer">
           <LogIn size={18} />
           <p className="text-xs text-muted text-slate-600 m-1">Sign in</p>
-        </div>
-        <div className="flex flex-col justify-center items-center cursor-pointer">
-          <Heart size={18} />
-          <p className="text-xs text-muted text-slate-600 m-1">Wishlist</p>
-        </div>
-        <div className="flex flex-col justify-center items-center cursor-pointer">
+        </div> */}
+        <Link href={"/wishlist"}>
+          <div className="flex flex-col justify-center items-center cursor-pointer">
+            <Heart size={18} />
+
+            <p className="text-xs text-muted text-slate-600 m-1">Wishlist</p>
+          </div>
+        </Link>
+        {/* <div className="flex flex-col justify-center items-center cursor-pointer">
           <HiOutlineShoppingBag />
           <p className="text-xs text-muted text-slate-600 m-1">My Bag</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
