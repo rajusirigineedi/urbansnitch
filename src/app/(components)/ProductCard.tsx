@@ -5,6 +5,7 @@ import { Bounce, ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setWishlistData } from "../redux/wishlistDataSlice";
+import { json } from "stream/consumers";
 interface ProductInterface {
   imageUrl: string[];
   title: string;
@@ -69,6 +70,7 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
       }
     );
     dispatch(setWishlistData([...wishlistData, data]));
+    localStorage.setItem("wishlistArray", JSON.stringify(wishlistData));
     console.log(wishlistData);
   };
 
