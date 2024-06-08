@@ -10,9 +10,10 @@ import { useRouter } from "next/navigation";
 const WishlistPage = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const wishlistDataFromLocalStorage = localStorage.getItem("wishlistArray");
-  console.log(JSON.parse(wishlistDataFromLocalStorage ?? ""));
   useEffect(() => {
+    const wishlistDataFromLocalStorage =
+      localStorage?.getItem?.("wishlistArray") ?? "";
+    console.log(JSON.parse(wishlistDataFromLocalStorage ?? ""));
     dispatch(setWishlistData(JSON.parse(wishlistDataFromLocalStorage ?? "")));
   }, []);
   const wishlistData = useSelector(
