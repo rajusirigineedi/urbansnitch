@@ -74,16 +74,23 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
     console.log(wishlistData);
   };
 
-  const removeFromWishlist = (status: boolean) => {
+  const removeFromWishlist = (status: boolean, data: any) => {
     setIsWishlisted(false);
+    console.table(data);
+    console.table(wishlistData[0]);
+    const filteredWishlistData = wishlistData.filter(
+      (item: any) => item?.price != data?.price
+    );
+    dispatch(setWishlistData(filteredWishlistData));
+    localStorage.setItem("wishlistArray", JSON.stringify(filteredWishlistData));
     toast.info(
       <div>
-        Item Removed from wishlist
-        <p>
+        Item removed to wishlist
+        <div className="flex flex-col">
           <a href="/wishlist" className="underline">
             Go to Wishlist
           </a>
-        </p>
+        </div>
       </div>,
       {
         position: "top-right",
@@ -118,7 +125,7 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
                 height="24"
                 src="/red-heart.png"
                 alt="heart-suit"
-                onClick={() => removeFromWishlist(false)}
+                onClick={() => removeFromWishlist(false, product)}
               />
             )}
             {!isWishlisted && (
