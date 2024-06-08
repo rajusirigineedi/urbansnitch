@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import localfont from "next/font/local";
-
-import { useMediaQuery } from "react-responsive";
 import Providers from "./(components)/Providers";
 import { Toaster } from "@/components/ui/toaster";
+import { ToastClose } from "@radix-ui/react-toast";
+import { ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin"] });
 
 const euclid = localfont({
@@ -42,6 +42,7 @@ export default function RootLayout({
       <body>
         <Providers>{children}</Providers>
       </body>
+      <ToastContainer />
     </html>
   );
 }

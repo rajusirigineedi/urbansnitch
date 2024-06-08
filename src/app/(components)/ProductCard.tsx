@@ -1,14 +1,21 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { ChevronLeft, ChevronRight, Heart, Link } from "lucide-react";
+import { Bounce, ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setWishlistData } from "../redux/wishlistDataSlice";
 interface ProductInterface {
   imageUrl: string[];
   title: string;
   price: string;
 }
 const ProductCard = ({ product }: { product: ProductInterface }) => {
+  const dispatch = useDispatch();
+  const wishlistData = useSelector(
+    (store: any) => store.wishlist.wishlistArray
+  );
+
   const sizes = ["S", "M", "L", "1XL", "2XL", "3XL"];
   const [selectedSize, setSelectedSize] = useState<Boolean>(false);
   const [selectedSizeString, setSelectedSizeString] = useState<String>("");
@@ -37,26 +44,57 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
     setCurrentImageUrl(product.imageUrl[currentImageIndex]);
   };
 
-  const [toggle, setToggle] = useState(false);
-
-  const addToWishlist = (status: boolean) => {
+  const addToWishlist = (status: boolean, data: any) => {
+    console.log(data);
     setIsWishlisted(true);
-    setToggle(!toggle);
-    toast("Item added to wishlist", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
+    toast.success(
+      <div>
+        Item added to wishlist
+        <div className="flex flex-col">
+          <a href="/wishlist" className="underline">
+            Go to Wishlist
+          </a>
+        </div>
+      </div>,
+      {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
+        transition: Zoom,
+      }
+    );
+    dispatch(setWishlistData([...wishlistData, data]));
+    console.log(wishlistData);
   };
 
   const removeFromWishlist = (status: boolean) => {
     setIsWishlisted(false);
+    toast.info(
+      <div>
+        Item Removed from wishlist
+        <p>
+          <a href="/wishlist" className="underline">
+            Go to Wishlist
+          </a>
+        </p>
+      </div>,
+      {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
+        transition: Zoom,
+      }
+    );
   };
 
   return (
@@ -82,7 +120,7 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
               />
             )}
             {!isWishlisted && (
-              <Heart size={24} onClick={() => addToWishlist(true)} />
+              <Heart size={24} onClick={() => addToWishlist(true, product)} />
             )}
           </div>
           <div className="flex gap-4 text-xs mt-2">
@@ -107,7 +145,6 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
             ₹ {product.price}
           </p>
         </div>
-        <ToastContainer />
       </div>
     </>
   );

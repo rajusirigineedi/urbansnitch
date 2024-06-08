@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-import { useMediaQuery } from "react-responsive";
 
 const DesktopHeader = () => {
   return (
