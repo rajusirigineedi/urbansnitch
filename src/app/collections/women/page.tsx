@@ -27,7 +27,7 @@ const MenProdcutCard = () => {
                 "https://www.nicobar.com/cdn/shop/files/NBI032646_1_400x.jpg?v=1712606847",
               ],
               title: "Shiro Beach Dress - Ivory",
-              price: "5750",
+              price: "5750" + item,
             }}
             key={item}
           />

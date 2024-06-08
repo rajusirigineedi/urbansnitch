@@ -27,7 +27,7 @@ const MenProdcutCard = () => {
                 "https://www.nicobar.com/cdn/shop/files/NBI032279_1_400x.jpg?v=1712661312",
               ],
               title: "Comoros Kurta - Green",
-              price: "6750",
+              price: "6750" + item,
             }}
             key={item}
           />
