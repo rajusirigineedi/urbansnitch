@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ToastClose } from "@radix-ui/react-toast";
 import { ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin"] });
+import "react-toastify/dist/ReactToastify.css";
 
 const euclid = localfont({
   src: [

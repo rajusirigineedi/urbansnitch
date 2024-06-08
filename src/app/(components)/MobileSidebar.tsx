@@ -1,5 +1,5 @@
 "use client";
-import { Menu, Search, User, UserRound } from "lucide-react";
+import { Heart, Menu, Search, User, UserRound } from "lucide-react";
 import React from "react";
 import Header from "./Header";
 import { Button } from "@/components/ui/button";
@@ -7,8 +7,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { useRouter } from "next/navigation";
 
 const MobileSidebar = () => {
+  const router = useRouter();
   return (
     <div className="lg:hidden md:hidden w-full h-16 bg-slate-100/10 flex justify-between items-center p-2 m-2 shadow-sm font-euclid">
       <Sheet>
@@ -27,7 +29,7 @@ const MobileSidebar = () => {
       <div className="flex gap-6 p-4 justify-center items-center">
         <UserRound />
         <Search />
-        <HiOutlineShoppingBag size={24} />
+        <Heart size={24} onClick={() => router.push("/wishlist")} />
       </div>
     </div>
   );
