@@ -6,6 +6,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setWishlistData } from "../redux/wishlistDataSlice";
 import { json } from "stream/consumers";
+import { message } from "antd";
+import useMediaCustom from "@/hooks/useMediaCustom";
+
 interface ProductInterface {
   imageUrl: string[];
   title: string;
@@ -13,6 +16,8 @@ interface ProductInterface {
 }
 const ProductCard = ({ product }: { product: ProductInterface }) => {
   const dispatch = useDispatch();
+  const isDesktop = useMediaCustom();
+  const [messageApi, contextHolder] = message.useMessage();
   const wishlistData = useSelector(
     (store: any) => store.wishlist.wishlistArray
   );
@@ -48,27 +53,35 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
   const addToWishlist = (status: boolean, data: any) => {
     console.log(data);
     setIsWishlisted(true);
-    toast.success(
-      <div>
-        Item added to wishlist
-        <div className="flex flex-col">
-          <a href="/wishlist" className="underline">
-            Go to Wishlist
-          </a>
-        </div>
-      </div>,
-      {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: false,
-        progress: undefined,
-        theme: "dark",
-        transition: Zoom,
-      }
-    );
+    console.log(isDesktop);
+    if (!isDesktop) {
+      messageApi.open({
+        type: "success",
+        content: "Item added to wishlist",
+      });
+    } else {
+      toast.success(
+        <div>
+          Item added to wishlist
+          <div className="flex flex-col">
+            <a href="/wishlist" className="underline">
+              Go to Wishlist
+            </a>
+          </div>
+        </div>,
+        {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          theme: "dark",
+          transition: Zoom,
+        }
+      );
+    }
     dispatch(setWishlistData([...wishlistData, data]));
     localStorage.setItem("wishlistArray", JSON.stringify(wishlistData));
     console.log(wishlistData);
@@ -83,31 +96,39 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
     );
     dispatch(setWishlistData(filteredWishlistData));
     localStorage.setItem("wishlistArray", JSON.stringify(filteredWishlistData));
-    toast.info(
-      <div>
-        Item removed to wishlist
-        <div className="flex flex-col">
-          <a href="/wishlist" className="underline">
-            Go to Wishlist
-          </a>
-        </div>
-      </div>,
-      {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: false,
-        progress: undefined,
-        theme: "dark",
-        transition: Zoom,
-      }
-    );
+    if (!isDesktop) {
+      messageApi.open({
+        type: "warning",
+        content: "Item Removed from wishlist",
+      });
+    } else {
+      toast.success(
+        <div>
+          Item Removed from wishlist
+          <div className="flex flex-col">
+            <a href="/wishlist" className="underline">
+              Go to Wishlist
+            </a>
+          </div>
+        </div>,
+        {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          theme: "dark",
+          transition: Zoom,
+        }
+      );
+    }
   };
 
   return (
     <>
+      {contextHolder}
       <div className="lg:w-80 md:w-72 sm:w-96 font-euclid">
         <div className="shadow-lg rounded-sm border-red p-4 lg:p-2 md:p-2 cursor-pointer">
           <img className="w-[370px]" src={currentImageUrl} alt="image" />
