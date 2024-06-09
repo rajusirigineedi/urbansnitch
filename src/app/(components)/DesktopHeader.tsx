@@ -20,6 +20,9 @@ const DesktopHeader = () => {
         </p>
         <p className="text-slate-600 text-sm cursor-pointer">Special Prices</p>
         <p className="text-slate-600 text-sm cursor-pointer">New Arrivals</p>
+        <p className="text-slate-600 text-sm cursor-pointer">
+          <Link href={"/Our-Story"}>Our Story</Link>
+        </p>
       </div>
       <div className="flex gap-8 ">
         <div className="flex flex-col justify-center items-center cursor-pointer">
