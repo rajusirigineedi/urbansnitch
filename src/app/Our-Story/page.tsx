@@ -27,12 +27,12 @@ const OurStory = () => {
                     <div>
                     HermanHood is on a mission to put our most crucial time on a pedestal.
                     We believe time spent recharging is a gift to every part of life: 
-                    we're better selves, partners, friends, parents, employees, pickleball
-                    players, you name it, when we're well rested.This mantra threads through
+                    we&apos;re better selves, partners, friends, parents, employees, pickleball
+                    players, you name it, when we&apos;re well rested.This mantra threads through
                     every part of our design process, resulting in thoughtful products that
                     are made for reveling in the restful moments of everyday. Sleeping, 
-                    dreaming, contemplating — moments that make you say, let’s go back to bed.
-                    The only thing we can’t do is cook you breakfast in the morning.
+                    dreaming, contemplating — moments that make you say, let&apos;s go back to bed.
+                    The only thing we can&apos;t do is cook you breakfast in the morning.
                     </div>
                 </div>
                 <div><img src="/OurStoryMission.jpeg" className="w-[30rem] h-[40rem] ml-10"/></div>
@@ -49,7 +49,7 @@ const OurStory = () => {
                     that allow you to hit pause, or maybe just smack that snooze button one more time.
                     We see our bedrooms as so much more than just another room in the house;  instead
                     a place to prioritize yourself, honoring what you need through connection, stillness,
-                    a good book (or binging one more episode), and a great night's sleep. We celebrate 
+                    a good book (or binging one more episode), and a great night&apos;s sleep. We celebrate 
                     rest as a universal treasure, and one that you owe to yourself. 
                     </div>
                 </div>
