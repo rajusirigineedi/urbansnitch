@@ -19,18 +19,19 @@ const MenProdcutCard = () => {
       </p>
       <div className="flex flex-wrap gap-10 justify-center p-4">
         {arr.map((item: number) => (
-          <ProductCard
-            product={{
-              imageUrl: [
-                "https://www.nicobar.com/cdn/shop/files/NBI032285_1_400x.jpg?v=1712661312",
-                "https://www.nicobar.com/cdn/shop/files/NBI032297_1_400x.jpg?v=1712661314",
-                "https://www.nicobar.com/cdn/shop/files/NBI032279_1_400x.jpg?v=1712661312",
-              ],
-              title: "Comoros Kurta - Green",
-              price: "6750" + item,
-            }}
-            key={item}
-          />
+          <Link href={`/products/${item}`} key={item}>
+            <ProductCard
+              product={{
+                imageUrl: [
+                  "https://www.nicobar.com/cdn/shop/files/NBI032285_1_400x.jpg?v=1712661312",
+                  "https://www.nicobar.com/cdn/shop/files/NBI032297_1_400x.jpg?v=1712661314",
+                  "https://www.nicobar.com/cdn/shop/files/NBI032279_1_400x.jpg?v=1712661312",
+                ],
+                title: "Comoros Kurta - Green",
+                price: "6750" + item,
+              }}
+            />
+          </Link>
         ))}
       </div>
     </div>
