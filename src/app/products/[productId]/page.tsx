@@ -77,11 +77,6 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
               alt=""
               className="w-1/2"
             />
-            <img
-              src="https://www.nicobar.com/cdn/shop/files/NBI033623_5_1200x.jpg?v=1715146952"
-              alt=""
-              className="w-full mt-2"
-            />
           </div>
           <div className="w-1/3 flex">
             <div className="flex flex-col gap-6">
@@ -110,7 +105,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
                 <div className="size-buttons flex gap-3">
                   {sizesButtonsArray.map((item) => (
                     <button
-                      className="text-gray-400 border border-gray-400 w-8 h-8 text-xs"
+                      className={`text-gray-400 border border-gray-400 w-8 h-8 text-xs`}
                       key={item}
                     >
                       {item}
