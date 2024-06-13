@@ -104,31 +104,25 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
           <Carousel>
             <CarouselContent>
               <CarouselItem>
-                <Link href={`/products/${product.price}`}>
-                  <img
-                    src={product.imageUrl[0]}
-                    alt=""
-                    className="cursor-pointer"
-                  />
-                </Link>
+                <img
+                  src={product.imageUrl[0]}
+                  alt=""
+                  className="cursor-pointer"
+                />
               </CarouselItem>
               <CarouselItem>
-                <Link href={`/products/${product.price}`}>
-                  <img
-                    src={product.imageUrl[1]}
-                    alt=""
-                    className="cursor-pointer"
-                  />
-                </Link>
+                <img
+                  src={product.imageUrl[1]}
+                  alt=""
+                  className="cursor-pointer"
+                />
               </CarouselItem>
               <CarouselItem>
-                <Link href={`/products/${product.price}`}>
-                  <img
-                    src={product.imageUrl[2]}
-                    alt=""
-                    className="cursor-pointer"
-                  />
-                </Link>
+                <img
+                  src={product.imageUrl[2]}
+                  alt=""
+                  className="cursor-pointer"
+                />
               </CarouselItem>
             </CarouselContent>
             <CarouselPrevious className="ml-14" />
