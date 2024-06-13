@@ -19,20 +19,18 @@ const MenProdcutCard = () => {
       </p>
       <div className="flex flex-wrap gap-10 justify-center p-4">
         {arr.map((item: number) => (
-          <Link href={`/products/${item}`} key={item}>
-            <ProductCard
-              product={{
-                imageUrl: [
-                  "https://www.nicobar.com/cdn/shop/files/NBI032582_1_400x.jpg?v=1712606847",
-                  "https://www.nicobar.com/cdn/shop/files/NBI032571_1_400x.jpg?v=1712606841",
-                  "https://www.nicobar.com/cdn/shop/files/NBI032646_1_400x.jpg?v=1712606847",
-                ],
-                title: "Shiro Beach Dress - Ivory",
-                price: "5750" + item,
-              }}
-              key={item}
-            />
-          </Link>
+          <ProductCard
+            product={{
+              imageUrl: [
+                "https://www.nicobar.com/cdn/shop/files/NBI032582_1_400x.jpg?v=1712606847",
+                "https://www.nicobar.com/cdn/shop/files/NBI032571_1_400x.jpg?v=1712606841",
+                "https://www.nicobar.com/cdn/shop/files/NBI032646_1_400x.jpg?v=1712606847",
+              ],
+              title: "Shiro Beach Dress - Ivory",
+              price: "5750" + item,
+            }}
+            key={item}
+          />
         ))}
       </div>
     </div>

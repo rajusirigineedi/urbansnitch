@@ -1,11 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Heart, Link } from "lucide-react";
+import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
 import { Bounce, ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setWishlistData } from "../redux/wishlistDataSlice";
 import { json } from "stream/consumers";
+import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import { useRouter } from "next/navigation";
 interface ProductInterface {
   imageUrl: string[];
   title: string;
@@ -13,6 +22,7 @@ interface ProductInterface {
 }
 const ProductCard = ({ product }: { product: ProductInterface }) => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const wishlistData = useSelector(
     (store: any) => store.wishlist.wishlistArray
   );
@@ -20,30 +30,11 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
   const sizes = ["S", "M", "L", "1XL", "2XL", "3XL"];
   const [selectedSize, setSelectedSize] = useState<Boolean>(false);
   const [selectedSizeString, setSelectedSizeString] = useState<String>("");
-  const [currentImageUrl, setCurrentImageUrl] = useState(product.imageUrl[0]);
-  const [currentCard, setCurrentCard] = useState("");
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [val, setVal] = useState(true);
   const [isWishlisted, setIsWishlisted] = useState(false);
   useEffect(() => {
     setTimeout(() => setVal(false), 5000);
   });
-  const handleLeftClick = () => {
-    setCurrentImageIndex(
-      currentImageIndex - 1 >= 0
-        ? currentImageIndex - 1
-        : product.imageUrl.length - 1
-    );
-    setCurrentImageUrl(product.imageUrl[currentImageIndex]);
-  };
-  const handleRightClick = () => {
-    setCurrentImageIndex(
-      currentImageIndex + 1 < product.imageUrl.length
-        ? currentImageIndex + 1
-        : 0
-    );
-    setCurrentImageUrl(product.imageUrl[currentImageIndex]);
-  };
 
   const addToWishlist = (status: boolean, data: any) => {
     console.log(data);
@@ -110,15 +101,45 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
     <>
       <div className="lg:w-80 md:w-72 sm:w-96 font-euclid">
         <div className="shadow-lg rounded-sm border-red p-4 lg:p-2 md:p-2 cursor-pointer">
-          <img className="w-[370px]" src={currentImageUrl} alt="image" />
-          <div className="flex justify-between mt-4">
-            <ChevronLeft size={30} onClick={handleLeftClick} />
-            <ChevronRight size={30} onClick={handleRightClick} />
-          </div>
+          <Carousel>
+            <CarouselContent>
+              <CarouselItem>
+                <Link href={`/products/${product.price}`}>
+                  <img
+                    src={product.imageUrl[0]}
+                    alt=""
+                    className="cursor-pointer"
+                  />
+                </Link>
+              </CarouselItem>
+              <CarouselItem>
+                <Link href={`/products/${product.price}`}>
+                  <img
+                    src={product.imageUrl[1]}
+                    alt=""
+                    className="cursor-pointer"
+                  />
+                </Link>
+              </CarouselItem>
+              <CarouselItem>
+                <Link href={`/products/${product.price}`}>
+                  <img
+                    src={product.imageUrl[2]}
+                    alt=""
+                    className="cursor-pointer"
+                  />
+                </Link>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious className="ml-14" />
+            <CarouselNext className="mr-14" />
+          </Carousel>
           <div className="flex justify-between items-center mt-3">
-            <p className="font-bold text-slate-700 text-md sm:text-sm md:text-sm">
-              {product.title}
-            </p>
+            <Link href={`/products/${product.price}`}>
+              <p className="font-bold text-slate-700 text-md sm:text-sm md:text-sm">
+                {product.title}
+              </p>
+            </Link>
             {isWishlisted && (
               <img
                 width="24"
