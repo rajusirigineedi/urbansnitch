@@ -42,8 +42,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
     (store: any) => store.product.productDetails
   );
   const { images, itemTitle, itemDescription, itemPrice } = productDetails[0];
-  console.log(images, itemTitle, itemPrice, itemDescription);
-  console.log(productDetails);
+
   return (
     <div className="p-2 w-full">
       <p className="text-center font-euclid text-sm mt-2 mb-2 text-gray-500 underline">
@@ -109,9 +108,9 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <button className="w-full bg-gray-500/100 text-white text-md h-10 mt-2 uppercase">
+                {/* <button className="w-full bg-gray-500/100 text-white text-md h-10 mt-2 uppercase">
                   Add to wishlist
-                </button>
+                </button> */}
                 <button className="w-full bg-black/100 text-white text-md h-10 mt-2">
                   <a
                     href="https://www.myntra.com/co-ords/house+of+jamoti/house-of-jamoti-self-designed-cuffed-sleeves-asymmetric-shirt-with-trouser/25997908/buy"
@@ -411,9 +410,9 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <button className="w-full bg-gray-500/100 text-white text-md h-10 mt-2 uppercase">
+              {/* <button className="w-full bg-gray-500/100 text-white text-md h-10 mt-2 uppercase">
                 Add to wishlist
-              </button>
+              </button> */}
               <button className="w-full bg-black/100 text-white text-md h-10 mt-2">
                 <a
                   href="https://www.myntra.com/co-ords/house+of+jamoti/house-of-jamoti-self-designed-cuffed-sleeves-asymmetric-shirt-with-trouser/25997908/buy"
