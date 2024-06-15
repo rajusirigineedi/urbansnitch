@@ -31,12 +31,19 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import LandingPageProductCard from "@/app/(components)/LandingPageProductCard";
+import { useSelector } from "react-redux";
 
 const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
   const productId = params.productId;
   const isDesktop = useMediaCustom();
   const sizesButtonsArray = ["S", "M", "L", "XL", "2XL", "3XL"];
-  const [sizeClicked, setSizeClicked] = useState(false);
+  const [activeSize, setActiveSize] = useState("");
+  const productDetails = useSelector(
+    (store: any) => store.product.productDetails
+  );
+  const { images, itemTitle, itemDescription, itemPrice } = productDetails[0];
+  console.log(images, itemTitle, itemPrice, itemDescription);
+  console.log(productDetails);
   return (
     <div className="p-2 w-full">
       <p className="text-center font-euclid text-sm mt-2 mb-2 text-gray-500 underline">
@@ -45,16 +52,8 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
       {isDesktop && (
         <div className="flex gap-6 font-euclid">
           <div className="w-2/3 flex flex-wrap">
-            <img
-              src="https://www.nicobar.com/cdn/shop/files/NBI033623_1_480x.jpg?v=1715146944"
-              alt=""
-              className="w-1/2 border-r-4"
-            />
-            <img
-              src="https://www.nicobar.com/cdn/shop/files/NBI033623_2_480x.jpg?v=1715146946"
-              alt=""
-              className="w-1/2"
-            />
+            <img src={images[0]} alt="" className="w-1/2 border-r-4" />
+            <img src={images[1]} alt="" className="w-1/2" />
             <div className="mt-2 flex gap-2 mb-2">
               {footerBoxDataArray.map((item: FooterBoxData) => (
                 <FooterBox
@@ -67,29 +66,20 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
                 />
               ))}
             </div>
-            <img
-              src="https://www.nicobar.com/cdn/shop/files/NBI033623_3_480x.jpg?v=1715146948"
-              alt=""
-              className="w-1/2 border-r-4"
-            />
-            <img
-              src="https://www.nicobar.com/cdn/shop/files/NBI033623_4_480x.jpg?v=1715146950"
-              alt=""
-              className="w-1/2"
-            />
+            <img src={images[2]} alt="" className="w-1/2 border-r-4" />
+            <img src={images[1]} alt="" className="w-1/2" />
           </div>
           <div className="w-1/3 flex">
             <div className="flex flex-col gap-6">
               <p className="product-title text-xl font-semibold text-gray-700">
-                Coastal Kurta - Lime
+                {itemTitle}
               </p>
               <p className="product-description text-gray-500 text-sm">
-                This classic fit kurta in a cool and refreshing solid lime hue
-                keeps you feeling cool and looking great.
+                {itemDescription}
               </p>
               <p className="text-sm">
                 <span className="text-gray-400">MRP</span>&nbsp;&nbsp;
-                <span>&#x20b9; 4,500</span>&nbsp;&nbsp;
+                <span>&#x20b9; {itemPrice}</span>&nbsp;&nbsp;
                 <span className="text-gray-400">inclusive of all taxes</span>
               </p>
               <p className="text-sm">
@@ -105,8 +95,13 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
                 <div className="size-buttons flex gap-3">
                   {sizesButtonsArray.map((item) => (
                     <button
-                      className={`text-gray-400 border border-gray-400 w-8 h-8 text-xs`}
+                      className={`border border-gray-400 w-8 h-8 text-xs ${
+                        activeSize == item
+                          ? "bg-gray-600/100 text-white"
+                          : "text-gray-400"
+                      } `}
                       key={item}
+                      onClick={() => setActiveSize(item)}
                     >
                       {item}
                     </button>
@@ -114,8 +109,16 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
+                <button className="w-full bg-gray-500/100 text-white text-md h-10 mt-2 uppercase">
+                  Add to wishlist
+                </button>
                 <button className="w-full bg-black/100 text-white text-md h-10 mt-2">
-                  BUY NOW
+                  <a
+                    href="https://www.myntra.com/co-ords/house+of+jamoti/house-of-jamoti-self-designed-cuffed-sleeves-asymmetric-shirt-with-trouser/25997908/buy"
+                    target="_blank"
+                  >
+                    BUY NOW
+                  </a>
                 </button>
                 <span className="text-xs text-gray-400">
                   Note: clicking on BUY NOW will take you to myntra.
@@ -353,29 +356,16 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
             <Carousel>
               <CarouselContent>
                 <CarouselItem>
-                  <img
-                    src="https://www.nicobar.com/cdn/shop/files/NBI033623_1_480x.jpg?v=1715146944"
-                    alt=""
-                    className=""
-                  />
+                  <img src={images[0]} alt="" className="" />
                 </CarouselItem>
                 <CarouselItem>
-                  <img
-                    src="https://www.nicobar.com/cdn/shop/files/NBI033623_2_480x.jpg?v=1715146946"
-                    alt=""
-                  />
+                  <img src={images[1]} alt="" />
                 </CarouselItem>
                 <CarouselItem>
-                  <img
-                    src="https://www.nicobar.com/cdn/shop/files/NBI033623_3_480x.jpg?v=1715146948"
-                    alt=""
-                  />
+                  <img src={images[2]} alt="" />
                 </CarouselItem>
                 <CarouselItem>
-                  <img
-                    src="https://www.nicobar.com/cdn/shop/files/NBI033623_5_1200x.jpg?v=1715146952"
-                    alt=""
-                  />
+                  <img src={images[1]} alt="" />
                 </CarouselItem>
               </CarouselContent>
               <CarouselPrevious className="ml-14" />
@@ -384,15 +374,14 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
           </div>
           <div className="flex flex-col gap-6 mt-4">
             <p className="product-title text-xl font-semibold text-gray-700">
-              Coastal Kurta - Lime
+              {itemTitle}
             </p>
             <p className="product-description text-gray-500 text-sm">
-              This classic fit kurta in a cool and refreshing solid lime hue
-              keeps you feeling cool and looking great.
+              {itemDescription}
             </p>
             <p className="text-sm">
               <span className="text-gray-400">MRP</span>&nbsp;&nbsp;
-              <span>&#x20b9; 4,500</span>&nbsp;&nbsp;
+              <span>&#x20b9; {itemPrice}</span>&nbsp;&nbsp;
               <span className="text-gray-400">inclusive of all taxes</span>
             </p>
             <p className="text-sm">
@@ -408,8 +397,13 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
               <div className="size-buttons flex  gap-3">
                 {sizesButtonsArray.map((item) => (
                   <button
-                    className="text-gray-400 border border-gray-400 w-8 h-8 text-xs"
+                    className={`border border-gray-400 w-8 h-8 text-xs ${
+                      activeSize == item
+                        ? "bg-gray-600/100 text-white"
+                        : "text-gray-400"
+                    } `}
                     key={item}
+                    onClick={() => setActiveSize(item)}
                   >
                     {item}
                   </button>
@@ -421,7 +415,12 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
                 Add to wishlist
               </button>
               <button className="w-full bg-black/100 text-white text-md h-10 mt-2">
-                BUY NOW
+                <a
+                  href="https://www.myntra.com/co-ords/house+of+jamoti/house-of-jamoti-self-designed-cuffed-sleeves-asymmetric-shirt-with-trouser/25997908/buy"
+                  target="_blank"
+                >
+                  BUY NOW
+                </a>
               </button>
               <span className="text-xs text-gray-400">
                 Note: clicking on BUY NOW will take you to myntra.

@@ -19,6 +19,8 @@ import {
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { FcInfo } from "react-icons/fc";
+import { ProductDetails } from "../(interfaces)/productDetails";
+import { setProductDetailsData } from "../redux/productDetailsSlice";
 
 interface ProductInterface {
   imageUrl: string[];
@@ -112,6 +114,22 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
     });
   };
 
+  const gotoProductDetailsPage = (price: string) => {
+    console.log("going to product details page");
+    let productData: ProductDetails = {
+      images: product.imageUrl,
+      itemTitle: product.title,
+      itemDescription:
+        "This classic fit kurta in a cool and refreshing solid lime hue keeps you feeling cool and looking great.",
+      itemPrice: product.price,
+    };
+    let productDataArray: ProductDetails[] = [];
+    productDataArray.push(productData);
+    localStorage.setItem("productDetails", JSON.stringify(productDataArray));
+    dispatch(setProductDetailsData(productDataArray));
+    router.push(`/products/${price}`);
+  };
+
   return (
     <>
       <div className="lg:w-80 md:w-72 sm:w-96 font-euclid">
@@ -144,11 +162,13 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
             <CarouselNext className="mr-14" />
           </Carousel>
           <div className="flex justify-between items-center mt-3">
-            <Link href={`/products/${product.price}`}>
-              <p className="font-bold text-slate-700 text-md sm:text-sm md:text-sm">
-                {product.title}
-              </p>
-            </Link>
+            <p
+              className="font-bold text-slate-700 text-md sm:text-sm md:text-sm cursor-pointer"
+              onClick={() => gotoProductDetailsPage(product.price)}
+            >
+              {product.title}
+            </p>
+
             {wishlistDataPrices?.length > 0 &&
             wishlistDataPrices != undefined &&
             wishlistDataPrices != null &&
