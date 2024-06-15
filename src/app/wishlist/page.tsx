@@ -51,7 +51,15 @@ const WishlistPage = () => {
       ) : (
         <div className="w-2/4 flex flex-col justify-center items-center">
           <p className="text-md md:text-lg text-gray-500 font-mono mt-24 uppercase text-center mb-20">
-            Your wishlist is empty
+            <div className="flex gap-2 justify-center items-center">
+              <span>Your wishlist is empty</span>
+              <img
+                src="https://fonts.gstatic.com/s/e/notoemoji/latest/2639_fe0f/512.gif"
+                alt="🥺"
+                width="20"
+                height="20"
+              />
+            </div>
             <br />
             <span className="text-xs text-center text-slate-500 lowercase mt-2">
               (but it doesn’t have to be)
