@@ -1,11 +1,12 @@
 "use client"
 import wishlistDataSlice from "./wishlistDataSlice";
-
+import productDetailsSlice from "./productDetailsSlice";
 const { configureStore } = require("@reduxjs/toolkit");
 
 const store = configureStore({
     reducer:{
-        wishlist:wishlistDataSlice
+        wishlist:wishlistDataSlice,
+        product:productDetailsSlice
     }
 });
 
