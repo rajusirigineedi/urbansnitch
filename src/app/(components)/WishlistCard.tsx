@@ -5,7 +5,8 @@ import {
   setWishlistData,
   setWishlistDataPrices,
 } from "../redux/wishlistDataSlice";
-import { Slide, Zoom, toast } from "react-toastify";
+import { FcInfo } from "react-icons/fc";
+import toast, { Toaster } from "react-hot-toast";
 
 const WishlistCard = ({ data }: { data: LandingPageProductCardInt }) => {
   const dispatch = useDispatch();
@@ -35,26 +36,19 @@ const WishlistCard = ({ data }: { data: LandingPageProductCardInt }) => {
     );
     console.table(filteredWishlistPrices);
     dispatch(setWishlistDataPrices(filteredWishlistPrices));
+    console.table(wishlistDataPrices);
     localStorage.setItem(
       "wishlistDataPrices",
       JSON.stringify(filteredWishlistPrices)
     );
-    toast.info(
-      <div>
-        <p> Item Removed from wishlist</p>
-      </div>,
-      {
-        position: "top-right",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "dark",
-        transition: Slide,
-      }
-    );
+    toast("Item removed from wishlist", {
+      icon: <FcInfo size={20} />,
+      style: {
+        background: "#e6ffff",
+        color: "#000000",
+        fontStyle: "bold",
+      },
+    });
   };
   return (
     <div className="w-[340px] md:w-72 min-h-56 font-euclid p-4">
