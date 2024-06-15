@@ -13,26 +13,34 @@ const WishlistPage = () => {
   useEffect(() => {
     const wishlistDataFromLocalStorage =
       localStorage?.getItem?.("wishlistArray") ?? "";
-    console.log(JSON.parse(wishlistDataFromLocalStorage ?? ""));
-    dispatch(setWishlistData(JSON.parse(wishlistDataFromLocalStorage ?? "")));
+    if (
+      wishlistDataFromLocalStorage?.length > 0 &&
+      wishlistDataFromLocalStorage != undefined &&
+      wishlistDataFromLocalStorage != null
+    ) {
+      dispatch(setWishlistData(JSON.parse(wishlistDataFromLocalStorage ?? "")));
+    } else {
+      dispatch(setWishlistData([]));
+    }
   }, []);
   const wishlistData = useSelector(
     (store: any) => store.wishlist.wishlistArray
   );
-  console.log(wishlistData);
   return (
     <div className="flex flex-col justify-start items-center min-h-52">
       <p className="uppercase tracking-widester mt-6 text-md md:text-xl text-gray-500">
         MY wishlist
       </p>
-      {wishlistData?.length > 0 ? (
+      {wishlistData?.length != 0 &&
+      wishlistData != undefined &&
+      Array.isArray(wishlistData) ? (
         <div className="flex flex-col justify-center items-start mt-6">
           <div className="flex flex-wrap gap-2 justify-center items-start">
             {wishlistData.map((data: any, index: number) => (
               <WishlistCard
                 key={index}
                 data={{
-                  imageUrl: data?.imageUrl[0],
+                  imageUrl: data?.imageUrl,
                   productPrice: data?.price,
                   productTitle: data?.title,
                 }}
