@@ -3,11 +3,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import localfont from "next/font/local";
 import Providers from "./(components)/Providers";
-import { Toaster } from "@/components/ui/toaster";
 import { ToastClose } from "@radix-ui/react-toast";
 import { ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin"] });
 import "react-toastify/dist/ReactToastify.css";
+import { Toaster } from "react-hot-toast";
 
 const euclid = localfont({
   src: [
@@ -43,7 +43,7 @@ export default function RootLayout({
       <body>
         <Providers>{children}</Providers>
       </body>
-      <ToastContainer />
+      <Toaster position="top-center" reverseOrder={false} />
     </html>
   );
 }

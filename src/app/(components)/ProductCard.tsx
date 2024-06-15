@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
-import { Bounce, Slide, ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -18,6 +17,9 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { FcInfo } from "react-icons/fc";
+
 interface ProductInterface {
   imageUrl: string[];
   title: string;
@@ -65,27 +67,14 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
 
   const addToWishlist = (status: boolean, data: any) => {
     setIsWishlisted(true);
-    toast.success(
-      <div>
-        Item added to wishlist
-        <div className="flex flex-col">
-          <a href="/wishlist" className="underline">
-            Go to Wishlist
-          </a>
-        </div>
-      </div>,
-      {
-        position: "top-right",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "dark",
-        transition: Slide,
-      }
-    );
+    toast.success("Item added to wishlist!!", {
+      style: {
+        background: "#e6ffff",
+        color: "#000000",
+        fontStyle: "bold",
+      },
+    });
+
     let existingWishlistData = [...wishlistData, data];
     dispatch(setWishlistData(existingWishlistData));
     localStorage.setItem("wishlistArray", JSON.stringify(wishlistData));
@@ -113,27 +102,14 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
       "wishlistDataPrices",
       JSON.stringify(filteredWishlistPrices)
     );
-    toast.info(
-      <div>
-        Item removed to wishlist
-        <div className="flex flex-col">
-          <a href="/wishlist" className="underline">
-            Go to Wishlist
-          </a>
-        </div>
-      </div>,
-      {
-        position: "top-right",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "dark",
-        transition: Slide,
-      }
-    );
+    toast("Item removed from wishlist", {
+      icon: <FcInfo size={20} />,
+      style: {
+        background: "#e6ffff",
+        color: "#000000",
+        fontStyle: "bold",
+      },
+    });
   };
 
   return (
