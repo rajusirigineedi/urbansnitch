@@ -4,7 +4,10 @@ import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
 import { Bounce, ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setWishlistData } from "../redux/wishlistDataSlice";
+import {
+  setWishlistData,
+  setWishlistDataPrices,
+} from "../redux/wishlistDataSlice";
 import { json } from "stream/consumers";
 import Link from "next/link";
 import {
@@ -23,9 +26,33 @@ interface ProductInterface {
 const ProductCard = ({ product }: { product: ProductInterface }) => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const wishlistData = useSelector(
-    (store: any) => store.wishlist.wishlistArray
+
+  // useEffect(() => {
+  //   const wishlistDataFromLocalStorage =
+  //     localStorage?.getItem?.("wishlistArray") ?? "";
+  //   dispatch(setWishlistData(JSON.parse(wishlistDataFromLocalStorage ?? "")));
+  // }, []);
+
+  // useEffect(() => {
+  //   const wishlistDataPricesFromLocalStorage =
+  //     localStorage?.getItem?.("wishlistDataPrices") ?? "";
+  //   dispatch(
+  //     setWishlistData(JSON.parse(wishlistDataPricesFromLocalStorage ?? ""))
+  //   );
+  // }, []);
+
+  let wishlistData = useSelector((store: any) => store.wishlist.wishlistArray);
+  let wishlistDataPrices = useSelector(
+    (store: any) => store.wishlist.wishlistDataPrices
   );
+
+  useEffect(() => {
+    localStorage.setItem("wishlistArray", JSON.stringify(wishlistData));
+    localStorage.setItem(
+      "wishlistDataPrices",
+      JSON.stringify(wishlistDataPrices)
+    );
+  }, [wishlistData, wishlistDataPrices]);
 
   const sizes = ["S", "M", "L", "1XL", "2XL", "3XL"];
   const [selectedSize, setSelectedSize] = useState<Boolean>(false);
@@ -37,7 +64,6 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
   });
 
   const addToWishlist = (status: boolean, data: any) => {
-    console.log(data);
     setIsWishlisted(true);
     toast.success(
       <div>
@@ -60,20 +86,33 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
         transition: Zoom,
       }
     );
-    dispatch(setWishlistData([...wishlistData, data]));
+    let existingWishlistData = [...wishlistData, data];
+    dispatch(setWishlistData(existingWishlistData));
     localStorage.setItem("wishlistArray", JSON.stringify(wishlistData));
-    console.log(wishlistData);
+    let exisitngWishlistDataPrices = [...wishlistDataPrices, data?.price];
+    dispatch(setWishlistDataPrices(exisitngWishlistDataPrices));
+    localStorage.setItem(
+      "wishlistDataPrices",
+      JSON.stringify(exisitngWishlistDataPrices)
+    );
   };
 
   const removeFromWishlist = (status: boolean, data: any) => {
     setIsWishlisted(false);
-    console.table(data);
-    console.table(wishlistData[0]);
+
     const filteredWishlistData = wishlistData.filter(
-      (item: any) => item?.price != data?.price
+      (item: any) => item?.price !== data?.price
+    );
+    const filteredWishlistPrices = wishlistDataPrices.filter(
+      (item: string) => item !== data?.price
     );
     dispatch(setWishlistData(filteredWishlistData));
     localStorage.setItem("wishlistArray", JSON.stringify(filteredWishlistData));
+    dispatch(setWishlistDataPrices(filteredWishlistPrices));
+    localStorage.setItem(
+      "wishlistDataPrices",
+      JSON.stringify(filteredWishlistPrices)
+    );
     toast.info(
       <div>
         Item removed to wishlist
@@ -134,7 +173,11 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
                 {product.title}
               </p>
             </Link>
-            {isWishlisted && (
+            {wishlistDataPrices?.length > 0 &&
+            wishlistDataPrices != undefined &&
+            wishlistDataPrices != null &&
+            Array.isArray(wishlistDataPrices) &&
+            wishlistDataPrices.includes(product.price) ? (
               <img
                 width="24"
                 height="24"
@@ -142,8 +185,7 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
                 alt="heart-suit"
                 onClick={() => removeFromWishlist(false, product)}
               />
-            )}
-            {!isWishlisted && (
+            ) : (
               <Heart size={24} onClick={() => addToWishlist(true, product)} />
             )}
           </div>
