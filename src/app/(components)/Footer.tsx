@@ -99,13 +99,20 @@ const Footer = () => {
         <div className="w-1/4 border-r border-gray-400 flex flex-col gap-2 justify-center items-center">
           <div className="flex flex-col justify-center items-start gap-2">
             <p className="font-bold cursor-pointer">About us</p>
-            <p className="text-gray-500 cursor-pointer">Our story</p>
+            <Link href={"/Our-Story"}>
+              <p className="text-gray-500 cursor-pointer">Our story</p>
+            </Link>
             <Link href={"/contact-us"}>
               <p className="text-gray-500 cursor-pointer">Contact us</p>
             </Link>
             <div className="flex gap-4 justify-center items-center mt-4">
               <FaLinkedin size={28} className="text-gray-500 cursor-pointer" />
-              <FaInstagram size={28} className="text-gray-500 cursor-pointer" />
+              <a href="https://www.instagram.com/hermanhood.in" target="blank">
+                <FaInstagram
+                  size={28}
+                  className="text-gray-500 cursor-pointer"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -118,7 +125,7 @@ const Footer = () => {
             <p className="text-gray-500 cursor-pointer">Terms & Conditions</p>
           </div>
         </div>
-        <div className="w-1/4 border-r border-gray-400 flex flex-col gap-2 justify-center items-center">
+        <div className="w-1/4 border-r border-gray-400 flex flex-col gap-2 lg:ml-10 justify-center items-center">
           <div className="flex flex-col justify-between items-start gap-2">
             <p className="font-bold text-xl cursor-pointer">HERMANHOOD</p>
             <p className="text-xs text-muted-foreground text-gray-500 text-wrap w-3/4">

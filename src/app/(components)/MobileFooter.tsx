@@ -79,7 +79,12 @@ const MobileFooter = () => {
             </Link>
             <div className="flex gap-4 justify-center items-center mt-4">
               <FaLinkedin size={28} className="text-gray-500 cursor-pointer" />
-              <FaInstagram size={28} className="text-gray-500 cursor-pointer" />
+              <a href="https://www.instagram.com/hermanhood.in" target="blank">
+                <FaInstagram
+                  size={28}
+                  className="text-gray-500 cursor-pointer"
+                />
+              </a>
             </div>
           </div>
           <div className="flex flex-col justify-center items-start gap-2">
