@@ -5,7 +5,7 @@ import {
   setWishlistData,
   setWishlistDataPrices,
 } from "../redux/wishlistDataSlice";
-import { Zoom, toast } from "react-toastify";
+import { Slide, Zoom, toast } from "react-toastify";
 
 const WishlistCard = ({ data }: { data: LandingPageProductCardInt }) => {
   const dispatch = useDispatch();
@@ -45,14 +45,14 @@ const WishlistCard = ({ data }: { data: LandingPageProductCardInt }) => {
       </div>,
       {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: false,
         progress: undefined,
         theme: "dark",
-        transition: Zoom,
+        transition: Slide,
       }
     );
   };

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
-import { Bounce, ToastContainer, Zoom, toast } from "react-toastify";
+import { Bounce, Slide, ToastContainer, Zoom, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -76,14 +76,14 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
       </div>,
       {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: false,
         progress: undefined,
         theme: "dark",
-        transition: Zoom,
+        transition: Slide,
       }
     );
     let existingWishlistData = [...wishlistData, data];
@@ -124,14 +124,14 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
       </div>,
       {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: false,
         progress: undefined,
         theme: "dark",
-        transition: Zoom,
+        transition: Slide,
       }
     );
   };
