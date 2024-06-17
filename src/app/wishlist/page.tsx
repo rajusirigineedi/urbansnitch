@@ -40,7 +40,7 @@ const WishlistPage = () => {
               <WishlistCard
                 key={index}
                 data={{
-                  imageUrl: data?.imageUrl,
+                  imageUrl: data?.imageUrl[0],
                   productPrice: data?.price,
                   productTitle: data?.title,
                 }}

@@ -21,15 +21,19 @@ import toast from "react-hot-toast";
 import { FcInfo } from "react-icons/fc";
 import { ProductDetails } from "../(interfaces)/productDetails";
 import { setProductDetailsData } from "../redux/productDetailsSlice";
+import { menProductData } from "../(utils)/constants";
 
 interface ProductInterface {
   imageUrl: string[];
   title: string;
   price: string;
+  description: string;
+  itemUrl: string;
 }
 const ProductCard = ({ product }: { product: ProductInterface }) => {
   const dispatch = useDispatch();
   const router = useRouter();
+  console.log(menProductData);
 
   // useEffect(() => {
   //   const wishlistDataFromLocalStorage =
@@ -119,9 +123,9 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
     let productData: ProductDetails = {
       images: product.imageUrl,
       itemTitle: product.title,
-      itemDescription:
-        "This classic fit kurta in a cool and refreshing solid lime hue keeps you feeling cool and looking great.",
+      itemDescription: product.description,
       itemPrice: product.price,
+      itemUrl: product.itemUrl,
     };
     let productDataArray: ProductDetails[] = [];
     productDataArray.push(productData);
@@ -163,10 +167,10 @@ const ProductCard = ({ product }: { product: ProductInterface }) => {
           </Carousel>
           <div className="flex justify-between items-center mt-3">
             <p
-              className="font-bold text-slate-700 text-md sm:text-sm md:text-sm cursor-pointer"
+              className="font-bold text-slate-700 text-md sm:text-sm md:text-sm cursor-pointer hover:text-blue-500"
               onClick={() => gotoProductDetailsPage(product.price)}
             >
-              {product.title}
+              {product.title.slice(0, 50)}
             </p>
 
             {wishlistDataPrices?.length > 0 &&
