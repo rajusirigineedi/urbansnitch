@@ -41,7 +41,9 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
   const productDetails = useSelector(
     (store: any) => store.product.productDetails
   );
-  const { images, itemTitle, itemDescription, itemPrice } = productDetails[0];
+  console.log(productDetails[0]);
+  const { images, itemTitle, itemDescription, itemPrice, itemUrl } =
+    productDetails[0];
 
   return (
     <div className="p-2 w-full">
@@ -112,10 +114,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
                   Add to wishlist
                 </button> */}
                 <button className="w-full bg-black/100 text-white text-md h-10 mt-2">
-                  <a
-                    href="https://www.myntra.com/co-ords/house+of+jamoti/house-of-jamoti-self-designed-cuffed-sleeves-asymmetric-shirt-with-trouser/25997908/buy"
-                    target="_blank"
-                  >
+                  <a href={itemUrl} target="_blank">
                     BUY NOW
                   </a>
                 </button>
@@ -364,7 +363,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
                   <img src={images[2]} alt="" />
                 </CarouselItem>
                 <CarouselItem>
-                  <img src={images[1]} alt="" />
+                  <img src={images[3]} alt="" />
                 </CarouselItem>
               </CarouselContent>
               <CarouselPrevious className="ml-14" />
@@ -414,10 +413,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
                 Add to wishlist
               </button> */}
               <button className="w-full bg-black/100 text-white text-md h-10 mt-2">
-                <a
-                  href="https://www.myntra.com/co-ords/house+of+jamoti/house-of-jamoti-self-designed-cuffed-sleeves-asymmetric-shirt-with-trouser/25997908/buy"
-                  target="_blank"
-                >
+                <a href={itemUrl} target="_blank">
                   BUY NOW
                 </a>
               </button>

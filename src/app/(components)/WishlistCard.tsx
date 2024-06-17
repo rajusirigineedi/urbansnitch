@@ -55,7 +55,7 @@ const WishlistCard = ({ data }: { data: LandingPageProductCardInt }) => {
       <div className="flex flex-col gap-2">
         <img src={data?.imageUrl} alt="" />
         <p className="text-left text-sm md:text-sm text-gray-600 mt-4">
-          {data?.productTitle}
+          {data?.productTitle.slice(0, 50)}
         </p>
         <p className="text-sm price sm:text-xs md:text-md mt-2">
           ₹ {data?.productPrice}
@@ -63,7 +63,7 @@ const WishlistCard = ({ data }: { data: LandingPageProductCardInt }) => {
       </div>
       <div className="flex justify-center items-center ">
         <button
-          className="bg-white bg-opacity-70 min-h-10 w-5/6 text-black -mt-52"
+          className="bg-white bg-opacity-70 min-h-10 w-5/6 text-black -mt-64 md:-mt-64"
           onClick={() => removeItemFromWishlist(data)}
         >
           Remove

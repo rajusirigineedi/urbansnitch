@@ -3,4 +3,5 @@ export interface ProductDetails {
     itemTitle: string;
     itemDescription: string;
     itemPrice: string;
+    itemUrl: string;
 }

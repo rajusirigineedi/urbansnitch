@@ -1,4 +1,5 @@
 import ProductCard from "@/app/(components)/ProductCard";
+import { womenData } from "@/app/(utils)/constants";
 import Link from "next/link";
 import React from "react";
 
@@ -18,18 +19,16 @@ const MenProdcutCard = () => {
         <span className="text-red-400">/ Women</span>
       </p>
       <div className="flex flex-wrap gap-10 justify-center p-4">
-        {arr.map((item: number) => (
+        {womenData.map((item) => (
           <ProductCard
             product={{
-              imageUrl: [
-                "https://www.nicobar.com/cdn/shop/files/NBI032582_1_400x.jpg?v=1712606847",
-                "https://www.nicobar.com/cdn/shop/files/NBI032571_1_400x.jpg?v=1712606841",
-                "https://www.nicobar.com/cdn/shop/files/NBI032646_1_400x.jpg?v=1712606847",
-              ],
-              title: "Shiro Beach Dress - Ivory",
-              price: "5750" + item,
+              imageUrl: item.contents.imageList,
+              title: item.product_name,
+              price: item.price.toString(),
+              description: item.product_details,
+              itemUrl: item.url,
             }}
-            key={item}
+            key={item.id}
           />
         ))}
       </div>

@@ -1,6 +1,8 @@
 import ProductCard from "@/app/(components)/ProductCard";
+import { menProductData, productSampleData } from "@/app/(utils)/constants";
 import Link from "next/link";
 import React from "react";
+import { mendata } from "../../(utils)/men";
 
 const MenProdcutCard = () => {
   const arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -18,18 +20,16 @@ const MenProdcutCard = () => {
         <span className="text-red-400">/ Men</span>
       </p>
       <div className="flex flex-wrap gap-10 justify-center p-4">
-        {arr.map((item: number) => (
+        {menProductData.map((item) => (
           <ProductCard
             product={{
-              imageUrl: [
-                "https://www.nicobar.com/cdn/shop/files/NBI032285_1_400x.jpg?v=1712661312",
-                "https://www.nicobar.com/cdn/shop/files/NBI032297_1_400x.jpg?v=1712661314",
-                "https://www.nicobar.com/cdn/shop/files/NBI032279_1_400x.jpg?v=1712661312",
-              ],
-              title: "Comoros Kurta - Green",
-              price: "6750" + item,
+              imageUrl: item.contents.imageList,
+              title: item.product_name,
+              price: item.price.toString(),
+              description: item.product_details,
+              itemUrl: item.url,
             }}
-            key={item}
+            key={item.id}
           />
         ))}
       </div>
